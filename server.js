@@ -11,12 +11,12 @@ app.use(cors()); // Enable CORS for all routes and origins
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Serve static files from the root directory (where index.html is)
-app.use(express.static(__dirname));
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Route to serve index.html as the main page
+// Route to serve index.htm as the main page from the 'public' directory
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.htm'));
 });
 
 // app.use(express.static(path.join(__dirname, 'public')));

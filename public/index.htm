@@ -10,13 +10,21 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;700&family=Noto+Sans+Greek:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Added stylesheet link -->
+    <style>
+        /* Basic styles for mobile nav - will be expanded in style.css */
+        .mobile-nav-toggle { display: none; /* Hidden by default, shown in mobile view via media query */ }
+        .mobile-nav-panel { display: none; /* Hidden by default */ }
+    </style>
 </head>
 <body>
     <!-- ================================== NAVIGATION ================================== -->
        <header>
         <div class="navbar">
-            <a href="#home" class="logo">Anastasia Reflexology</a> <!-- Changed div to a -->
-            <nav aria-label="Κύρια Μενού">
+            <a href="#home" class="logo">Anastasia Reflexology</a>
+            <button class="mobile-nav-toggle" aria-label="Μενού" aria-expanded="false" aria-controls="mobileNavPanel">
+                <span>☰</span> <!-- Simple hamburger icon -->
+            </button>
+            <nav class="desktop-nav" aria-label="Κύρια Μενού">
                 <ul>
                     <li><a href="#home">Αρχική</a></li>
                     <li><a href="#about">Σχετικά</a></li>
@@ -28,6 +36,18 @@
             </nav>
         </div>
     </header>
+
+    <div id="mobileNavPanel" class="mobile-nav-panel">
+        <button class="mobile-nav-close" aria-label="Κλείσιμο μενού">✖</button>
+        <ul>
+            <li><a href="#home">Αρχική</a></li>
+            <li><a href="#about">Σχετικά</a></li>
+            <li><a href="#services">Υπηρεσίες</a></li>
+            <li><a href="#gallery">Εικόνες</a></li>
+            <li><a href="#location">Τοποθεσία</a></li>
+            <li><a href="#contact">Επικοινωνία</a></li>
+        </ul>
+    </div>
 
     <!-- ================================== HERO ================================== -->
     <section id="home" class="hero" aria-label="Εισαγωγική Ενότητα">
@@ -66,7 +86,7 @@
 
             <div class="discover-main-content">
                 <div class="discover-image-wrapper">
-                    <img src="pictures/chart.jpg" alt="Διάγραμμα αντανακλαστικών σημείων ρεφλεξολογίας" loading="lazy" style="border-radius: 0;">
+                    <img src="../pictures/chart.jpg" alt="Διάγραμμα αντανακλαστικών σημείων ρεφλεξολογίας" loading="lazy">
                 </div>
                 <div class="discover-text">
                     <h3>Τι Είναι Πραγματικά η Ρεφλεξολογία;</h3>
@@ -239,11 +259,42 @@
     <script>
         /* Back-to-top visibility */
         const topBtn = document.getElementById('topBtn');
-        window.addEventListener('scroll', () => {
-            if (document.documentElement.scrollTop > 450) topBtn.style.display = 'block';
-            else topBtn.style.display = 'none';
-        });
-        topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        if (topBtn) { // Ensure topBtn exists
+            window.addEventListener('scroll', () => {
+                if (document.documentElement.scrollTop > 450) topBtn.style.display = 'block';
+                else topBtn.style.display = 'none';
+            });
+            topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        // Mobile Navigation Panel Script
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNavPanel = document.getElementById('mobileNavPanel');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
+        const mobileNavLinks = mobileNavPanel.querySelectorAll('a');
+
+        if (mobileNavToggle && mobileNavPanel && mobileNavClose) {
+            mobileNavToggle.addEventListener('click', () => {
+                const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true' || false;
+                mobileNavToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileNavPanel.classList.toggle('open');
+                document.body.classList.toggle('no-scroll'); // Optional: prevent body scroll when panel is open
+            });
+
+            mobileNavClose.addEventListener('click', () => {
+                mobileNavToggle.setAttribute('aria-expanded', 'false');
+                mobileNavPanel.classList.remove('open');
+                document.body.classList.remove('no-scroll');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavToggle.setAttribute('aria-expanded', 'false');
+                    mobileNavPanel.classList.remove('open');
+                    document.body.classList.remove('no-scroll');
+                });
+            });
+        }
 
         const contactForm = document.getElementById('contactForm');
         // Create a status message element if it doesn't exist, or select an existing one

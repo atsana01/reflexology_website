@@ -39,20 +39,89 @@ header {
     max-width: 1250px; margin: 0 auto;
     padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
 }
-.logo { font-size: 1.65rem; font-weight: 700; letter-spacing: 1px; }
-nav ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
-nav a { color: var(--light); font-weight: 600; transition: color 0.3s ease; }
-nav a:hover, nav a:focus { color: var(--secondary); }
-@media (max-width: 720px) {
-    nav ul { flex-wrap: wrap; justify-content: center; }
+.logo { font-size: 1.65rem; font-weight: 700; letter-spacing: 1px; color: var(--light); /* Ensure logo color is set */}
+
+.desktop-nav ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+.desktop-nav a { color: var(--light); font-weight: 600; transition: color 0.3s ease; }
+.desktop-nav a:hover, .desktop-nav a:focus { color: var(--secondary); }
+
+/* Mobile Navigation Styles */
+.mobile-nav-toggle {
+    display: none; /* Hidden by default, shown via media query */
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
 }
 
-/* Base mobile styles */
-.navbar ul { flex-direction: column; align-items: center; }
+.mobile-nav-panel {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%; /* Or your preferred width */
+    max-width: 300px;
+    height: 100%;
+    background: var(--dark);
+    z-index: 1001; /* Above header */
+    padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
 
-/* Tablet and up */
-@media (min-width: 721px) {
-    .navbar ul { flex-direction: row; justify-content: space-between; }
+.mobile-nav-panel.open {
+    display: block;
+    transform: translateX(0);
+}
+
+.mobile-nav-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0 0; /* Space from top/close button */
+}
+
+.mobile-nav-panel li a {
+    display: block;
+    padding: 1rem 0;
+    color: var(--light);
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(249, 249, 249, 0.1);
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-panel li a:hover,
+.mobile-nav-panel li a:focus {
+    color: var(--secondary);
+}
+
+.mobile-nav-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.body.no-scroll { /* Optional: to prevent body scroll when panel is open */
+    overflow: hidden;
+}
+
+/* Media Query for Mobile Navigation */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .desktop-nav { display: none; }
+    .mobile-nav-toggle { display: block; }
+    /* .navbar ul { */ /* This was a previous rule, might conflict or be redundant */
+        /* flex-direction: column; */ /* Remove if using panel */
+        /* align-items: center; */ /* Remove if using panel */
+    /* } */
 }
 
 /* ------------------ BUTTON ------------------ */
@@ -221,12 +290,13 @@ footer { background:#08120d; text-align: center; padding: 2rem 1rem; color:#8fa1
     #discover-reflexology .discover-main-content {
         grid-template-columns: 1fr 1.2fr; /* Image | Text */
         gap: 3.5rem;
+        align-items: center; /* Vertically align items if they have different heights */
     }
-     #discover-reflexology .discover-main-content.image-right { /* If you plan to use this class */
+     #discover-reflexology .discover-main-content.image-right {
         grid-template-columns: 1.2fr 1fr; /* Text | Image */
     }
     #discover-reflexology .discover-main-content.image-right .discover-image-wrapper {
-        order: 1;
+        order: 1; /* Moves image to the right in a CSS grid */
     }
 }
 
