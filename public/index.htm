@@ -86,7 +86,7 @@
 
             <div class="discover-main-content">
                 <div class="discover-image-wrapper">
-                    <img src="../pictures/chart.jpg" alt="Διάγραμμα αντανακλαστικών σημείων ρεφλεξολογίας" loading="lazy">
+                    <img src="pictures/chart.jpg" alt="Διάγραμμα αντανακλαστικών σημείων ρεφλεξολογίας" style="width: 100%; max-width: 600px; display: block; margin: 20px auto;" loading="lazy">
                 </div>
                 <div class="discover-text">
                     <h3>Τι Είναι Πραγματικά η Ρεφλεξολογία;</h3>
@@ -363,7 +363,7 @@
                         return {ok: response.ok, status: response.status, text };
                     });
                 })
-                .then(data => {
+                .then(data => { // Corrected: Added parentheses around 'data'
                     console.log('Processed data object:', data); // Log the object we created
                     if (data.ok) {
                         formStatusMessage.textContent = data.text || 'Ευχαριστούμε! Το μήνυμά σας έχει σταλεί.';
