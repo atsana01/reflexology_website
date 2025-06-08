@@ -1,0 +1,309 @@
+/* ------------------ CSS VARIABLES ------------------ */
+:root {
+    --primary: #0f2d1f; /* Dark green */
+    --secondary: #dbc893; /* Warm gold */
+    --light: #f9f9f9;
+    --dark: #0a1a12;
+    --focus: #e5d7a9;
+}
+
+/* ------------------ GLOBAL STYLES ------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: 'Noto Sans Greek', sans-serif;
+    background: var(--primary);
+    color: var(--light);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+h1, h2, h3, h4 { font-family: 'Noto Serif Display', serif; color: var(--secondary); }
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin: 0 0 0.8rem; }
+h2 { font-size: clamp(1.75rem, 3.6vw, 2.6rem); margin-bottom: 1.25rem; }
+h3 { font-size: 1.4rem; margin-bottom: 0.6rem; }
+p { margin-top: 0; }
+a { color: var(--focus); text-decoration: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px dashed var(--secondary); outline-offset: 3px; }
+img { width: 100%; display: block; border-radius: 12px; }
+
+/* ------------------ NAVIGATION ------------------ */
+
+header {
+    background: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar {
+    max-width: 1250px; margin: 0 auto;
+    padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.65rem; font-weight: 700; letter-spacing: 1px; }
+nav ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+nav a { color: var(--light); font-weight: 600; transition: color 0.3s ease; }
+nav a:hover, nav a:focus { color: var(--secondary); }
+@media (max-width: 720px) {
+    nav ul { flex-wrap: wrap; justify-content: center; }
+}
+
+/* Base mobile styles */
+.navbar ul { flex-direction: column; align-items: center; }
+
+/* Tablet and up */
+@media (min-width: 721px) {
+    .navbar ul { flex-direction: row; justify-content: space-between; }
+}
+
+/* ------------------ BUTTON ------------------ */
+.btn {
+    display: inline-block; padding: 0.8rem 1.6rem; border-radius: 50px; font-weight: 600;
+    background: var(--secondary); color: var(--dark); transition: background 0.3s ease, transform 0.3s ease;
+}
+.btn:hover { background: var(--focus); transform: translateY(-3px); }
+
+/* ------------------ SECTIONS ------------------ */
+section { padding: 4rem 1.2rem; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* ------------------ HERO ------------------ */
+.hero {
+    min-height: 92vh; display: grid; place-items: center; text-align: center; padding: 2rem;
+    background: linear-gradient(rgba(15,45,31,0.8),rgba(15,45,31,0.8)), url('https://images.unsplash.com/photo-1589274933413-adf30c64a4ef?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+}
+.hero p { font-size: clamp(1rem, 2.3vw, 1.3rem); max-width: 680px; margin: 0 auto 2rem; }
+
+/* ------------------ ABOUT ------------------ */
+.about-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: center; }
+
+/* ------------------ SERVICES ------------------ */
+      .services-grid { 
+    display: grid; 
+    gap: 2rem; /* Increased gap for better separation */
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Adjusted minmax for content */
+}
+.service-card {  background: var(--dark); 
+    padding: 2rem 1.5rem; 
+    border-radius: 15px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(219, 200, 147, 0.25); /* Slightly more visible gold border */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space, helps align price at bottom */
+    min-height: 260px; /* Ensures cards have a consistent minimum height */
+}
+.service-card:hover { 
+    transform: translateY(-8px); /* Enhanced hover effect */
+    box-shadow: 0 8px 25px rgba(219, 200, 147, 0.25); /* Softer, more prominent gold shadow */
+}
+.service-card h3 {
+    color: var(--secondary);
+    font-size: 1.6rem; /* Slightly larger title */
+    margin-top: 0;
+    margin-bottom: 0.75rem; 
+}
+.service-card .service-duration,
+.service-card .service-description {
+    color: var(--light);
+    font-size: 1rem; /* Standardized font size for details */
+    line-height: 1.6;
+    margin-bottom: 1rem; /* Space below description/duration */
+    flex-grow: 1; /* Allows this section to take available space */
+}
+.service-card .service-price-tag {
+    font-size: 2.2rem; /* Significantly larger price */
+    font-weight: 700;
+    color: var(--focus); /* Brighter gold for price, using --focus */
+    margin-top: auto; /* Pushes price to the bottom of the card */
+    padding-top: 1rem; /* Space above the price */
+    border-top: 1px dashed rgba(219, 200, 147, 0.4); /* Decorative separator line */
+}
+
+/* ------------------ HOURS TABLE ------------------ */
+table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+table th, table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #294433; }
+
+/* ------------------ TESTIMONIALS ------------------ */
+.testimonial { background: var(--dark); padding: 2rem 2rem 3rem; border-radius: 20px; margin-bottom: 2rem; position: relative; }
+.testimonial:before { content:"\201C"; font-family: serif; position: absolute; top: -20px; left: 20px; font-size: 4rem; color: var(--secondary); }
+
+/* ------------------ GALLERY ------------------ */
+.gallery-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+/* ------------------ CONTACT FORM ------------------ */
+form { display: grid; gap: 1rem; max-width: 650px; margin: 0 auto; }
+input, textarea { width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: none; background:#173223; color: var(--light); }
+textarea { resize: vertical; min-height: 160px; }
+input::placeholder, textarea::placeholder { color:#9db8a5; }
+
+/* ------------------ ACCESSIBILITY BADGE ------------------ */
+.accessible-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: #1c3526; padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.9rem;
+}
+.accessible-badge svg { width: 20px; height: 20px; fill: var(--secondary); }
+
+/* ------------------ FOOTER ------------------ */
+footer { background:#08120d; text-align: center; padding: 2rem 1rem; color:#8fa191; font-size: 0.95rem; }
+
+/* ------------------ BACK TO TOP ------------------ */
+#topBtn { display:none; position:fixed; bottom:30px; right:30px; background:var(--secondary); color:var(--dark); padding:0.75rem 1.05rem; border:none; border-radius:50px; cursor:pointer; font-size:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.35); transition:transform 0.3s ease; }
+#topBtn:hover { transform:translateY(-4px); }
+
+/* ------------------ DISCOVER REFLEXOLOGY (NEW STYLES) ------------------ */
+#discover-reflexology {
+    background: var(--dark);
+    padding: 5rem 1.2rem;
+}
+
+.discover-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+.discover-header #discover-heading { /* More specific selector */
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+.discover-header p {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    color: var(--light);
+    max-width: 750px;
+    margin: 0 auto 2rem;
+}
+
+.discover-main-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Default for mobile */
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.discover-image-wrapper {
+    max-width: 500px; /* Reduced max-width for a smaller image */
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+/* The style="border-radius: 0;" for the img can remain inline if it's specific to this image,
+   or you can target it: .discover-image-wrapper img { border-radius: 0; } */
+
+.discover-text h3 {
+    color: var(--secondary);
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    margin-bottom: 1rem;
+}
+.discover-text p {
+    margin-bottom: 1rem;
+}
+.discover-text p:last-child {
+    margin-bottom: 0;
+}
+
+.reflexology-benefits-section .benefits-title { /* New class for this h3 */
+    text-align: center;
+    color: var(--secondary);
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-bottom: 2.5rem;
+}
+
+.discover-cta-wrapper {
+    text-align: center;
+    margin-top: 3rem;
+}
+.discover-cta-btn { /* New class for this button */
+    background-color: var(--focus);
+    color: var(--primary);
+}
+
+@media (min-width: 768px) {
+    #discover-reflexology .discover-main-content {
+        grid-template-columns: 1fr 1.2fr; /* Image | Text */
+        gap: 3.5rem;
+    }
+     #discover-reflexology .discover-main-content.image-right { /* If you plan to use this class */
+        grid-template-columns: 1.2fr 1fr; /* Text | Image */
+    }
+    #discover-reflexology .discover-main-content.image-right .discover-image-wrapper {
+        order: 1;
+    }
+}
+
+.benefits-grid-new {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; /* Increased gap */
+}
+
+.benefit-card-new {
+    background: #132920; /* Slightly lighter than var(--dark) or a contrasting dark shade */
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(219, 200, 147, 0.2); /* Subtle gold border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefit-card-new:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(219, 200, 147, 0.15);
+}
+
+.benefit-icon-new {
+    font-size: 2.5rem; /* Larger icons */
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.benefit-card-new h4 {
+    color: var(--secondary);
+    font-size: 1.3rem; /* Slightly adjusted size */
+    margin-bottom: 0.75rem;
+    font-family: 'Noto Serif Display', serif;
+}
+
+.benefit-card-new p {
+    color: var(--light);
+    font-size: 0.95rem; /* Slightly smaller for card content */
+    line-height: 1.6;
+    flex-grow: 1; /* Helps align content if cards have varying text length */
+}
+
+/* Fade-in animation */
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* Visually hidden labels for accessibility */
+.visually-hidden { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+  }
+}
+
+/* Form status messages */
+#formStatusMessage {
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green */
+    border: 1px solid #c3e6cb;
+}
+
+.status-error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red */
+    border: 1px solid #f5c6cb;
+}
