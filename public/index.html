@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anastasia Reflexology - Ρεφλεξολογία &amp; Ευεξία στη Βέροια</title>
     <meta name="description" content="Ανακαλύψτε την τέχνη της ρεφλεξολογίας με την Αναστασία. Εξατομικευμένες συνεδρίες σε έναν πλήρως προσβάσιμο χώρο στη Βέροια για χαλάρωση και ευεξία.">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="pictures/logo.png" type="image/png">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;700&family=Noto+Sans+Greek:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Added stylesheet link -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- ================================== NAVIGATION ================================== -->
        <header>
         <div class="navbar">
-            <a href="#home" class="logo">Anastasia Reflexology</a>
+            <a href="#home" class="logo">
+                <img src="pictures/logo.png" alt="Anastasia Reflexology Logo" class="logo-img">
+                <span class="logo-text">Anastasia Reflexology</span>
+            </a>
             <button class="mobile-nav-toggle" aria-label="Μενού" aria-expanded="false" aria-controls="mobileNavPanel">
                 <span>☰</span> <!-- Simple hamburger icon -->
             </button>
@@ -52,24 +57,28 @@
         <div>
             <h1>Απολαύστε Ρεφλεξολογία σε έναν Όμορφο Χώρο Ευεξίας</h1>
             <p>Χαρίστε στον εαυτό σας στιγμές βαθιάς χαλάρωσης και ευεξίας σε έναν χώρο ειδικά διαμορφωμένο για την πλήρη άνεση κάθε επισκέπτη – συμπεριλαμβανομένων ατόμων με αναπηρία.</p>
-            <a class="btn" href="#contact">Κλείσε Ραντεβού</a>
+            <a class="btn btn-primary btn-icon" href="#contact">
+                <i class="fas fa-calendar-check"></i> Κλείσε Ραντεβού
+            </a>
         </div>
     </section>
 
     <!-- ================================== ABOUT ================================== -->
     <section id="about" aria-labelledby="about-heading">
-        <div class="container about-grid fade-in">
-            <div>
+        <div class="container about-grid">
+            <div class="slide-in-left">
                 <h2 id="about-heading">Γνωρίστε την Αναστασία</h2>
                 <p>Η <strong>Αναστασία</strong> είναι πιστοποιημένη ρεφλεξολόγος με εμπειρία. Στον ολοκαίνουργιο και πλήρως <em>προσβάσιμο</em> χώρο της, παρέχει εξατομικευμένες συνεδρίες που βοηθούν το σώμα να επανέλθει στη φυσική του ισορροπία, μειώνοντας το άγχος, βελτιώνοντας τον ύπνο και ενισχύοντας την ευεξία σας.</p>
                 <p>Στόχος μας είναι να κάνουμε τη συνεδρία προσιτή σε όλους.</p>
-                <span class="accessible-badge" aria-label="Προσβάσιμο για ΑΜΕΑ">
+                <span class="accessible-badge scale-in" aria-label="Προσβάσιμο για ΑΜΕΑ">
                     <!-- Simple wheelchair icon -->
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 11h-1V5a3 3 0 10-2 0v6a1 1 0 001 1h3a3 3 0 010 6h-1v2h1a5 5 0 000-10zM8 21a4 4 0 100-8 4 4 0 000 8z"/></svg>
                     <span>Προσβάσιμος Χώρος</span>
                 </span>
             </div>
-            <img src="https://images.unsplash.com/photo-1556228723-b4e3b4f90905?auto=format&fit=crop&w=900&q=80" alt="Θεραπεύτρια εφαρμόζει ρεφλεξολογία σε πόδια" loading="lazy">
+            <div class="slide-in-right">
+                <img src="pictures/feet.png" alt="Διάγραμμα αντανακλαστικών σημείων στα πόδια" class="parallax" data-speed="0.05" loading="lazy">
+            </div>
         </div>
     </section>
 
@@ -128,7 +137,9 @@
                     </div>
                 </div>
                 <div class="discover-cta-wrapper">
-                    <a href="#contact" class="btn discover-cta-btn">Ζήστε την Εμπειρία της Ρεφλεξολογίας</a>
+                    <a href="#contact" class="btn btn-secondary btn-icon">
+                        <i class="fas fa-spa"></i> Ζήστε την Εμπειρία της Ρεφλεξολογίας
+                    </a>
                 </div>
             </div>
         </div>
@@ -137,7 +148,7 @@
 
 
     <!-- ================================== SERVICES ================================== -->
-         <section id="services" style="background:#132920;" aria-labelledby="services-heading">
+         <section id="services" aria-labelledby="services-heading">
         <div class="container fade-in">
             <h2 id="services-heading">Υπηρεσίες</h2>
             <div class="services-grid">
@@ -184,18 +195,66 @@
     </section>-->
 
     <!-- ================================== GALLERY ================================== -->
-    <section id="gallery" style="background:#132920;" aria-labelledby="gallery-heading">
+    <section id="gallery" aria-labelledby="gallery-heading">
         <div class="container fade-in">
-            <h2 id="gallery-heading">Στιγμές από τον Χώρο μας</h2>
+            <h2 id="gallery-heading">Εξερευνήστε τους Χώρους μας</h2>
             <div class="gallery-grid">
-                <picture>
-         <source srcset="path/to/image1.webp" type="image/webp">
-         <source srcset="https://images.unsplash.com/photo-1606513542514-76cc89c4bd0f?auto=format&fit=crop&w=700&q=80" type="image/jpeg">
-         <img src="https://images.unsplash.com/photo-1606513542514-76cc89c4bd0f?auto=format&fit=crop&w=700&q=80" alt="Κεράκια και αρωματοθεραπεία" loading="lazy">
-     </picture>
-                <img src="https://images.unsplash.com/photo-1527778720076-54077e5a62a4?auto=format&fit=crop&w=700&q=80" alt="Χώρος θεραπείας με φιλικό φωτισμό" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1584466977777-77eb251bfb74?auto=format&fit=crop&w=700&q=80" alt="Λεπτομέρεια πολυθρόνας ρεφλεξολογίας" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1570158268183-d296b2892211?auto=format&fit=crop&w=700&q=80" alt="Χειροπετσέτες και αιθέρια έλαια" loading="lazy">
+                <div class="gallery-item">
+                    <img src="pictures/space1.jpg" alt="Χώρος θεραπείας 1" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Χώρος Υποδοχής</h3>
+                            <p>Ένας ζεστός και φιλόξενος χώρος για να σας καλωσορίσουμε</p>
+                            <button class="gallery-btn" data-img="pictures/space1.jpg" aria-label="Προβολή σε πλήρες μέγεθος">
+                                <i class="fas fa-search-plus"></i> Μεγέθυνση
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="pictures/space2.jpg" alt="Χώρος θεραπείας 2" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Δωμάτιο Θεραπείας</h3>
+                            <p>Ειδικά σχεδιασμένο για την απόλυτη χαλάρωση και άνεση</p>
+                            <button class="gallery-btn" data-img="pictures/space2.jpg" aria-label="Προβολή σε πλήρες μέγεθος">
+                                <i class="fas fa-search-plus"></i> Μεγέθυνση
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="pictures/space3.jpg" alt="Χώρος θεραπείας 3" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Γωνιά Χαλάρωσης</h3>
+                            <p>Ένας ήρεμος χώρος για να απολαύσετε το τσάι σας μετά τη συνεδρία</p>
+                            <button class="gallery-btn" data-img="pictures/space3.jpg" aria-label="Προβολή σε πλήρες μέγεθος">
+                                <i class="fas fa-search-plus"></i> Μεγέθυνση
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="pictures/space4.jpeg" alt="Χώρος θεραπείας 4" loading="lazy" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Προσβάσιμη Είσοδος</h3>
+                            <p>Πλήρως προσβάσιμος χώρος για όλους τους επισκέπτες</p>
+                            <button class="gallery-btn" data-img="pictures/space4.jpeg" aria-label="Προβολή σε πλήρες μέγεθος">
+                                <i class="fas fa-search-plus"></i> Μεγέθυνση
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <button class="lightbox-close" aria-label="Κλείσιμο προβολής εικόνας">&times;</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="Προβολή εικόνας σε πλήρες μέγεθος">
             </div>
         </div>
     </section>
@@ -212,11 +271,45 @@
     </section>
 
     <!-- ================================== TESTIMONIALS ================================== -->
-    <section aria-labelledby="testimonials-heading" style="background:#132920;">
+    <section id="testimonials" aria-labelledby="testimonials-heading">
         <div class="container fade-in">
             <h2 id="testimonials-heading">Μαρτυρίες Πελατών</h2>
-            <div class="testimonial"><p><strong>Δέσποινα Ζ.</strong> – «Μετά από μερικές συνεδρίες, ένιωσα τεράστια βελτίωση στην ενέργειά μου και τα προβλήματα πόνου εξαφανίστηκαν!»</p></div>
-            <div class="testimonial"><p><strong>Πέτρος Δ.</strong> – «Η ρεφλεξολογία με βοήθησε να μειώσω το στρες και να κοιμάμαι καλύτερα από ποτέ!»</p></div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-container">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial">
+                            <p><strong>Δέσποινα Ζ.</strong> – «Μετά από μερικές συνεδρίες, ένιωσα τεράστια βελτίωση στην ενέργειά μου και τα προβλήματα πόνου εξαφανίστηκαν!»</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <p><strong>Πέτρος Δ.</strong> – «Η ρεφλεξολογία με βοήθησε να μειώσω το στρες και να κοιμάμαι καλύτερα από ποτέ!»</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <p><strong>Μαρία Κ.</strong> – «Η Αναστασία είναι εξαιρετική επαγγελματίας! Η τεχνική της είναι άψογη και ο χώρος της πολύ άνετος και χαλαρωτικός.»</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial">
+                            <p><strong>Γιώργος Μ.</strong> – «Υπέφερα από πόνους στην πλάτη για χρόνια. Μετά από 5 συνεδρίες ρεφλεξολογίας, αισθάνομαι επιτέλους ανακούφιση!»</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="testimonial-arrow prev" aria-label="Προηγούμενη μαρτυρία">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-arrow next" aria-label="Επόμενη μαρτυρία">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="testimonial-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -234,13 +327,15 @@
                 <label for="email" class="visually-hidden">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email" required>
                 
-                <label for="_replyto" class="visually-hidden">Email for reply</label>
+                <!-- Hidden field for reply-to email -->
                 <input type="hidden" name="_replyto" id="formReplyTo">
 
 
                 <label for="message" class="visually-hidden">Μήνυμα</label>
                 <textarea id="message" name="message" placeholder="Μήνυμα" required></textarea>
-                <button type="submit" class="btn">Αποστολή</button>
+                <button type="submit" class="btn btn-primary btn-icon">
+                    <i class="fas fa-paper-plane"></i> Αποστολή
+                </button>
             </form>
         </div>
     </section>
@@ -252,16 +347,62 @@
 
     <!-- BACK TO TOP BUTTON -->
     <button id="topBtn" aria-label="Επιστροφή στην κορυφή">▲</button>
+    
+    <!-- FLOATING CHAT INTERFACE -->
+    <div class="chat-icon" id="chatIcon" aria-label="Συνομιλία με εμάς">
+        <i class="fas fa-comments"></i>
+        <span class="notification">1</span>
+    </div>
+    
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="chat-title">
+                <img src="pictures/logo.png" alt="Anastasia Reflexology Logo" class="chat-logo">
+                <span>Βοηθός Ρεφλεξολογίας</span>
+            </div>
+            <button class="chat-close" id="chatClose" aria-label="Κλείσιμο συνομιλίας">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        
+        <div class="chat-options" id="chatOptions">
+            <!-- Options will be added here dynamically -->
+        </div>
+        
+        <div class="chat-input-container">
+            <input type="text" id="chatInput" placeholder="Γράψτε το μήνυμά σας..." aria-label="Γράψτε το μήνυμά σας">
+            <button id="chatSend" aria-label="Αποστολή μηνύματος">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
     <main>
     <!-- ================================== SCRIPTS ================================== -->
     <script>
-        /* Back-to-top visibility */
+        /* Back-to-top visibility and header scroll effect */
         const topBtn = document.getElementById('topBtn');
-        if (topBtn) { // Ensure topBtn exists
-            window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            // Back to top button visibility
+            if (topBtn) {
                 if (document.documentElement.scrollTop > 450) topBtn.style.display = 'block';
                 else topBtn.style.display = 'none';
-            });
+            }
+            
+            // Header scroll effect
+            if (document.documentElement.scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        if (topBtn) {
             topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         }
 
@@ -386,13 +527,444 @@
             });
         }
 
-        /* Intersection Observer for fade-in */
+        /* Intersection Observer for animations */
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+                if (entry.isIntersecting) { 
+                    entry.target.classList.add('visible'); 
+                    observer.unobserve(entry.target); 
+                }
             });
         }, { threshold: 0.2 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Apply to all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in').forEach(el => observer.observe(el));
+        
+        /* Parallax Effect */
+        const parallaxElements = document.querySelectorAll('.parallax');
+        
+        window.addEventListener('scroll', () => {
+            parallaxElements.forEach(el => {
+                const speed = el.getAttribute('data-speed') || 0.1;
+                const yPos = -(window.scrollY * speed);
+                el.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+        
+        /* Chat Interface Functionality */
+        const chatIcon = document.getElementById('chatIcon');
+        const chatContainer = document.getElementById('chatContainer');
+        const chatClose = document.getElementById('chatClose');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatOptions = document.getElementById('chatOptions');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+        
+        // Educational content about reflexology
+        const reflexologyContent = {
+            welcome: {
+                message: "Καλώς ήρθατε στο χώρο ρεφλεξολογίας της Αναστασίας! Πώς μπορώ να σας βοηθήσω σήμερα;",
+                options: [
+                    { text: "Τι είναι η ρεφλεξολογία;", value: "what_is_reflexology" },
+                    { text: "Ποια τα οφέλη της ρεφλεξολογίας;", value: "benefits" },
+                    { text: "Πώς μπορώ να κλείσω ραντεβού;", value: "booking" },
+                    { text: "Τιμές υπηρεσιών", value: "prices" }
+                ]
+            },
+            what_is_reflexology: {
+                message: "Η ρεφλεξολογία είναι μια εναλλακτική θεραπευτική μέθοδος που βασίζεται στην αρχή ότι υπάρχουν αντανακλαστικά σημεία στα πόδια, τα χέρια και τα αυτιά που αντιστοιχούν σε διάφορα όργανα και συστήματα του σώματος. Με την εφαρμογή πίεσης σε αυτά τα σημεία, ο ρεφλεξολόγος μπορεί να προωθήσει την υγεία και την ευεξία σε όλο το σώμα.",
+                options: [
+                    { text: "Πώς λειτουργεί;", value: "how_it_works" },
+                    { text: "Ποια τα οφέλη της;", value: "benefits" },
+                    { text: "Είναι κατάλληλη για μένα;", value: "suitable_for_me" }
+                ]
+            },
+            how_it_works: {
+                message: "Η ρεφλεξολογία λειτουργεί με την εφαρμογή πίεσης σε συγκεκριμένα σημεία των ποδιών, των χεριών ή των αυτιών. Αυτά τα σημεία συνδέονται με διάφορα όργανα και συστήματα του σώματος μέσω ενεργειακών καναλιών. Η πίεση σε αυτά τα σημεία βοηθά στην απελευθέρωση της ενέργειας και την αποκατάσταση της ισορροπίας στο σώμα, προωθώντας έτσι τη φυσική διαδικασία αυτοθεραπείας.",
+                options: [
+                    { text: "Ποια τα οφέλη της;", value: "benefits" },
+                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" }
+                ]
+            },
+            benefits: {
+                message: "Η ρεφλεξολογία προσφέρει πολλά οφέλη, όπως:\n\n• Μείωση του στρες και της έντασης\n• Βελτίωση της κυκλοφορίας του αίματος\n• Ενίσχυση του ανοσοποιητικού συστήματος\n• Ανακούφιση από πόνους και πονοκεφάλους\n• Βελτίωση της ποιότητας του ύπνου\n• Αύξηση των επιπέδων ενέργειας\n• Προώθηση της συνολικής ευεξίας\n\nΠολλοί πελάτες μας αναφέρουν σημαντική βελτίωση μετά από μόλις λίγες συνεδρίες!",
+                options: [
+                    { text: "Πόσες συνεδρίες χρειάζομαι;", value: "sessions_needed" },
+                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
+                    { text: "Τιμές υπηρεσιών", value: "prices" }
+                ]
+            },
+            suitable_for_me: {
+                message: "Η ρεφλεξολογία είναι κατάλληλη για τους περισσότερους ανθρώπους και μπορεί να βοηθήσει σε διάφορες καταστάσεις. Είναι ιδιαίτερα ωφέλιμη για άτομα που αντιμετωπίζουν στρες, αϋπνία, πονοκεφάλους, προβλήματα πέψης, ορμονικές ανισορροπίες και χρόνιους πόνους. Ωστόσο, υπάρχουν ορισμένες περιπτώσεις όπου μπορεί να μην συνιστάται, όπως σε περιπτώσεις θρόμβωσης ή σοβαρών μολύνσεων. Η Αναστασία μπορεί να σας συμβουλεύσει αν έχετε συγκεκριμένες ανησυχίες.",
+                options: [
+                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
+                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" }
+                ]
+            },
+            sessions_needed: {
+                message: "Ο αριθμός των συνεδριών που χρειάζεστε εξαρτάται από την κατάστασή σας και τους στόχους σας. Για γενική χαλάρωση και ευεξία, μια μηνιαία συνεδρία μπορεί να είναι αρκετή. Για συγκεκριμένα προβλήματα υγείας, συνιστώνται συνήθως 4-6 εβδομαδιαίες συνεδρίες, ακολουθούμενες από συντήρηση κάθε 2-4 εβδομάδες. Η Αναστασία θα δημιουργήσει ένα εξατομικευμένο πλάνο θεραπείας για εσάς μετά την πρώτη σας συνεδρία.",
+                options: [
+                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
+                    { text: "Τιμές υπηρεσιών", value: "prices" }
+                ]
+            },
+            prices: {
+                message: "Οι τιμές των υπηρεσιών μας είναι:\n\n• Συνεδρία Ρεφλεξολογίας (45 λεπτά): 30€\n• Πακέτο 10 Συνεδριών: 270€ (εξοικονόμηση 30€)\n• Express Ρεφλεξολογία (30 λεπτά): 20€\n• Ρεφλεξολογία Κεφαλής & Προσώπου: 25€\n\nΠροσφέρουμε επίσης ειδικές τιμές για συνταξιούχους και φοιτητές. Ρωτήστε μας για περισσότερες πληροφορίες!",
+                options: [
+                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
+                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" }
+                ]
+            },
+            booking: {
+                message: "Υπάρχουν διάφοροι τρόποι για να κλείσετε ραντεβού:\n\n• Τηλεφωνικά: Καλέστε μας στο 697 622 2211\n• Email: Στείλτε μας στο anastasiareflexology@gmail.com\n• Φόρμα επικοινωνίας: Συμπληρώστε τη φόρμα στην ιστοσελίδα μας\n\nΘα θέλατε να σας βοηθήσω να συμπληρώσετε τη φόρμα επικοινωνίας τώρα;",
+                options: [
+                    { text: "Ναι, θέλω να συμπληρώσω τη φόρμα", value: "form" },
+                    { text: "Θα επικοινωνήσω τηλεφωνικά", value: "call" },
+                    { text: "Θα στείλω email", value: "email" }
+                ]
+            },
+            form: {
+                message: "Τέλεια! Μπορείτε να συμπληρώσετε τη φόρμα επικοινωνίας στο κάτω μέρος της σελίδας. Απλά κάντε κλικ στο κουμπί παρακάτω και θα σας μεταφέρω εκεί. Συμπληρώστε το όνομά σας, το email σας και ένα σύντομο μήνυμα με τις προτιμήσεις σας για ημέρα και ώρα, και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό!",
+                options: [
+                    { text: "Μετάβαση στη φόρμα επικοινωνίας", value: "goto_form" }
+                ]
+            },
+            call: {
+                message: "Μπορείτε να μας καλέσετε στο 697 622 2211 για να κλείσετε το ραντεβού σας. Οι ώρες λειτουργίας μας είναι Δευτέρα έως Παρασκευή, 10:00-20:00 και Σάββατο 10:00-15:00. Ανυπομονούμε να σας ακούσουμε!",
+                options: [
+                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" },
+                    { text: "Τέλος συνομιλίας", value: "end_chat" }
+                ]
+            },
+            email: {
+                message: "Μπορείτε να μας στείλετε email στο anastasiareflexology@gmail.com με τις προτιμήσεις σας για ημέρα και ώρα. Θα σας απαντήσουμε εντός 24 ωρών για να επιβεβαιώσουμε το ραντεβού σας. Ευχαριστούμε για το ενδιαφέρον σας!",
+                options: [
+                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" },
+                    { text: "Τέλος συνομιλίας", value: "end_chat" }
+                ]
+            },
+            end_chat: {
+                message: "Ευχαριστούμε που επικοινωνήσατε μαζί μας! Ελπίζουμε να σας δούμε σύντομα στο χώρο μας για μια αναζωογονητική συνεδρία ρεφλεξολογίας. Καλή σας ημέρα!",
+                options: []
+            }
+        };
+        
+        // Function to add a message to the chat
+        function addMessage(text, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.textContent = text;
+            chatMessages.appendChild(messageElement);
+            
+            // Scroll to the bottom of the messages
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Function to show typing indicator
+        function showTypingIndicator() {
+            const typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('typing-indicator');
+            typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+            typingIndicator.id = 'typingIndicator';
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Function to hide typing indicator
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        // Function to display options
+        function displayOptions(options) {
+            // Clear previous options
+            chatOptions.innerHTML = '';
+            
+            // Add new options
+            options.forEach(option => {
+                const optionButton = document.createElement('button');
+                optionButton.classList.add('chat-option');
+                optionButton.textContent = option.text;
+                optionButton.dataset.value = option.value;
+                chatOptions.appendChild(optionButton);
+                
+                // Add event listener to option button
+                optionButton.addEventListener('click', () => {
+                    // Add user's selection as a message
+                    addMessage(option.text, 'user');
+                    
+                    // Handle special actions
+                    if (option.value === 'goto_form') {
+                        // Scroll to contact form
+                        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                        // Focus on name input after scrolling
+                        setTimeout(() => {
+                            document.getElementById('name').focus();
+                        }, 1000);
+                        // Close chat after a delay
+                        setTimeout(() => {
+                            chatContainer.classList.remove('active');
+                        }, 2000);
+                        return;
+                    }
+                    
+                    // Show typing indicator
+                    showTypingIndicator();
+                    
+                    // Simulate bot thinking and then respond
+                    setTimeout(() => {
+                        hideTypingIndicator();
+                        
+                        // Get response content based on option value
+                        const responseContent = reflexologyContent[option.value];
+                        if (responseContent) {
+                            // Add bot response
+                            addMessage(responseContent.message, 'bot');
+                            
+                            // Display new options
+                            displayOptions(responseContent.options);
+                        }
+                    }, 1000); // Simulate typing delay
+                });
+            });
+        }
+        
+        // Initialize chat when icon is clicked
+        if (chatIcon && chatContainer && chatClose) {
+            chatIcon.addEventListener('click', () => {
+                // Remove notification when clicked
+                const notification = chatIcon.querySelector('.notification');
+                if (notification) {
+                    notification.style.display = 'none';
+                }
+                
+                // Show chat container
+                chatContainer.classList.add('active');
+                
+                // If chat is empty, initialize with welcome message
+                if (chatMessages.children.length === 0) {
+                    // Show typing indicator
+                    showTypingIndicator();
+                    
+                    // Simulate bot thinking and then respond with welcome message
+                    setTimeout(() => {
+                        hideTypingIndicator();
+                        addMessage(reflexologyContent.welcome.message, 'bot');
+                        displayOptions(reflexologyContent.welcome.options);
+                    }, 1000);
+                }
+            });
+            
+            // Close chat when close button is clicked
+            chatClose.addEventListener('click', () => {
+                chatContainer.classList.remove('active');
+            });
+            
+            // Handle user input from text field
+            if (chatInput && chatSend) {
+                // Send message when send button is clicked
+                chatSend.addEventListener('click', sendUserMessage);
+                
+                // Send message when Enter key is pressed
+                chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        sendUserMessage();
+                    }
+                });
+                
+                function sendUserMessage() {
+                    const userMessage = chatInput.value.trim();
+                    if (userMessage) {
+                        // Add user message to chat
+                        addMessage(userMessage, 'user');
+                        
+                        // Clear input field
+                        chatInput.value = '';
+                        
+                        // Show typing indicator
+                        showTypingIndicator();
+                        
+                        // Simulate bot thinking and then respond
+                        setTimeout(() => {
+                            hideTypingIndicator();
+                            
+                            // Simple keyword-based response
+                            let responseKey = 'welcome'; // Default to welcome
+                            
+                            if (userMessage.toLowerCase().includes('ραντεβού') || 
+                                userMessage.toLowerCase().includes('κλείσω') || 
+                                userMessage.toLowerCase().includes('επικοινωνία')) {
+                                responseKey = 'booking';
+                            } else if (userMessage.toLowerCase().includes('τιμ') || 
+                                      userMessage.toLowerCase().includes('κοστ') || 
+                                      userMessage.toLowerCase().includes('ευρώ') || 
+                                      userMessage.toLowerCase().includes('€')) {
+                                responseKey = 'prices';
+                            } else if (userMessage.toLowerCase().includes('οφέλ') || 
+                                      userMessage.toLowerCase().includes('βοηθά')) {
+                                responseKey = 'benefits';
+                            } else if (userMessage.toLowerCase().includes('ρεφλεξολογία') || 
+                                      userMessage.toLowerCase().includes('τι είναι')) {
+                                responseKey = 'what_is_reflexology';
+                            }
+                            
+                            // Add bot response
+                            addMessage(reflexologyContent[responseKey].message, 'bot');
+                            
+                            // Display new options
+                            displayOptions(reflexologyContent[responseKey].options);
+                        }, 1500); // Slightly longer delay for typing response to user input
+                    }
+                }
+            }
+            
+            // Show notification after a delay for demo purposes
+            setTimeout(() => {
+                const notification = chatIcon.querySelector('.notification');
+                if (notification) {
+                    notification.style.display = 'flex';
+                }
+            }, 5000);
+        }
+        
+        /* Testimonial Carousel Functionality */
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const prevButton = document.querySelector('.testimonial-arrow.prev');
+        const nextButton = document.querySelector('.testimonial-arrow.next');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let testimonialInterval;
+        
+        // Function to show a specific slide
+        function showSlide(index) {
+            // Hide all slides
+            testimonialSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Deactivate all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show the selected slide and activate corresponding dot
+            testimonialSlides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            // Update current slide index
+            currentSlide = index;
+        }
+        
+        // Function to show the next slide
+        function nextSlide() {
+            let nextIndex = currentSlide + 1;
+            if (nextIndex >= testimonialSlides.length) {
+                nextIndex = 0;
+            }
+            showSlide(nextIndex);
+        }
+        
+        // Function to show the previous slide
+        function prevSlide() {
+            let prevIndex = currentSlide - 1;
+            if (prevIndex < 0) {
+                prevIndex = testimonialSlides.length - 1;
+            }
+            showSlide(prevIndex);
+        }
+        
+        // Start auto-rotation
+        function startAutoRotation() {
+            // Clear any existing interval
+            if (testimonialInterval) {
+                clearInterval(testimonialInterval);
+            }
+            
+            // Set new interval to change slides every 4 seconds
+            testimonialInterval = setInterval(() => {
+                nextSlide();
+            }, 4000);
+        }
+        
+        // Event listeners for manual navigation
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                // Restart auto-rotation after manual navigation
+                startAutoRotation();
+            });
+            
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                // Restart auto-rotation after manual navigation
+                startAutoRotation();
+            });
+        }
+        
+        // Event listeners for dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                // Restart auto-rotation after manual navigation
+                startAutoRotation();
+            });
+        });
+        
+        // Start auto-rotation when the page loads
+        startAutoRotation();
+        
+        /* Gallery Lightbox Functionality */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const galleryBtns = document.querySelectorAll('.gallery-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        // Open lightbox when gallery button is clicked
+        galleryBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                const imgSrc = btn.getAttribute('data-img');
+                lightboxImg.src = imgSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+            });
+        });
+        
+        // Also open lightbox when gallery item is clicked
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('.gallery-btn').getAttribute('data-img');
+                lightboxImg.src = imgSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close lightbox when close button is clicked
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
     </main>
 </body>
