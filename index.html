@@ -320,16 +320,22 @@
             <p>Τηλέφωνο: <a href="tel:+306976222211">+30 697 622 2211</a><br>
                Email: <a href="mailto:anastasiareflexology@gmail.com">anastasiareflexology@gmail.com</a><br>
                Ιστότοπος: <a href="https://www.anastasiatouch.com" target="_blank" rel="noopener">www.anastasiatouch.com</a></p>
-            <form id="contactForm" method="POST"> <!-- Removed action and onsubmit -->
+            <form id="contactForm" class="fs-form" action="https://formspree.io/f/mpwlgpqq" method="POST" target="_top">
                 <label for="name" class="visually-hidden">Ονοματεπώνυμο</label>
                 <input type="text" id="name" name="name" placeholder="Ονοματεπώνυμο" required>
 
                 <label for="email" class="visually-hidden">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email" required>
-                
+
+                <label for="phone" class="visually-hidden">Κινητό τηλέφωνο</label>
+                <input type="tel" id="phone" name="phone" placeholder="Κινητό τηλέφωνο">
+
+                <!-- Honeypot field (hidden to users) - bots that fill this will be blocked -->
+                <label for="website" class="visually-hidden">Website</label>
+                <input type="text" id="website" name="website" class="visually-hidden" placeholder="Website" tabindex="-1" autocomplete="off">
+
                 <!-- Hidden field for reply-to email -->
                 <input type="hidden" name="_replyto" id="formReplyTo">
-
 
                 <label for="message" class="visually-hidden">Μήνυμα</label>
                 <textarea id="message" name="message" placeholder="Μήνυμα" required></textarea>
@@ -450,10 +456,18 @@
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
+            const honeypot = document.getElementById('website');
             
             formStatusMessage.textContent = ''; // Clear previous message
             formStatusMessage.className = ''; // Clear previous styling
 
+            // Honeypot check: if the hidden 'website' field has a value, block as spam
+            if (honeypot && honeypot.value.trim() !== '') {
+                console.warn('Honeypot triggered - blocking submission');
+                formStatusMessage.textContent = 'Υποψία ανεπιθύμητης αποστολής (spam). Η αποστολή αποκλείστηκε.';
+                formStatusMessage.classList.add('status-error');
+                return false;
+            }
             if (!name || !email || !message) { 
                 formStatusMessage.textContent = 'Παρακαλούμε συμπληρώστε όλα τα πεδία.';
                 formStatusMessage.classList.add('status-error'); // Add a class for styling
@@ -471,6 +485,35 @@
 
         if (contactForm) {
             contactForm.addEventListener('submit', function(event) {
+                // If the form action points to Formspree, run validation and allow normal submission
+                const actionRaw = contactForm.getAttribute('action') || '';
+                const action = actionRaw.toLowerCase();
+
+                // Detect placeholder left in action (e.g. {FORM_ID}) and show helpful error
+                if (actionRaw.includes('{') || actionRaw.includes('FORM_ID')) {
+                    event.preventDefault();
+                    formStatusMessage.textContent = 'Σφάλμα: Το πεδίο action της φόρμας περιέχει το {FORM_ID}. Παρακαλώ αντικαταστήστε το {FORM_ID} με το αναγνωριστικό της φόρμας σας στο Formspree (π.χ. https://formspree.io/f/abc123).';
+                    formStatusMessage.classList.remove('status-success');
+                    formStatusMessage.classList.add('status-error');
+                    return;
+                }
+
+                if (action.includes('formspree.io')) {
+                    // Run client-side validation and let the browser submit the form to Formspree
+                    if (!validateAndPrepareForm()) {
+                        // Prevent submission if validation fails
+                        event.preventDefault();
+                        return;
+                    }
+
+                    // Show a status message and allow the form to post to Formspree
+                    formStatusMessage.textContent = 'Αποστολή...';
+                    formStatusMessage.classList.remove('status-error', 'status-success');
+                    // Do not call preventDefault() — let the browser submit the form
+                    return;
+                }
+
+                // Otherwise, use the existing local POST-to-server flow
                 event.preventDefault();
 
                 if (!validateAndPrepareForm()) {
@@ -502,16 +545,14 @@
                         return {ok: response.ok, status: response.status, text };
                     });
                 })
-                .then(data => { // Corrected: Added parentheses around 'data'
+                .then(data => {
                     console.log('Processed data object:', data); // Log the object we created
                     if (data.ok) {
                         formStatusMessage.textContent = data.text || 'Ευχαριστούμε! Το μήνυμά σας έχει σταλεί.';
                         formStatusMessage.classList.add('status-success');
                         contactForm.reset();
                     } else {
-                        // Display the text from the server if available, otherwise a generic error
                         let errorMessage = data.text || `Σφάλμα διακομιστή (HTTP ${data.status}). Ελέγξτε την κονσόλα.`;
-                        // If the server text is the generic one, let's be more specific if we can
                         if (data.text === "Κάτι πήγε στραβά. Παρακαλούμε δοκιμάστε ξανά." && data.status !== 200) {
                              errorMessage = `Σφάλμα από τον διακομιστή (HTTP ${data.status}): ${data.text || 'Δεν επιστράφηκε συγκεκριμένο μήνυμα.'} Ελέγξτε την κονσόλα.`;
                         }
@@ -609,7 +650,7 @@
                 ]
             },
             prices: {
-                message: "Οι τιμές των υπηρεσιών μας είναι:\n\n• Συνεδρία Ρεφλεξολογίας (45 λεπτά): 30€\n• Πακέτο 10 Συνεδριών: 270€ (εξοικονόμηση 30€)\n• Express Ρεφλεξολογία (30 λεπτά): 20€\n• Ρεφλεξολογία Κεφαλής & Προσώπου: 25€\n\nΠροσφέρουμε επίσης ειδικές τιμές για συνταξιούχους και φοιτητές. Ρωτήστε μας για περισσότερες πληροφορίες!",
+                message: "Οι τιμές των υπηρεσιών μας είναι:\n\n• Συνεδρία Ρεφλεξολογίας (45 λεπτά): 30€\n• Πακέτο 10 Συνεδριών: 270€ (εξοικονόμηση 30€)\n• Express Ρεφλεξολογία (30 λεπτά): 20€\n• Ρεφλεξολογία Κεφαλής & Προσώπου: 25€\n\nΓια περισσότερες πληροφορίες σχετικά με τιμές, παρακαλούμε επικοινωνήστε μαζί μας.",
                 options: [
                     { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
                     { text: "Επιστροφή στο κύριο μενού", value: "welcome" }

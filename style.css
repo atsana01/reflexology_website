@@ -1,13 +1,13 @@
 /* ------------------ CSS VARIABLES ------------------ */
 :root {
-    --primary: #1a7d72; /* More vibrant teal green */
-    --secondary: #e6c87a; /* Brighter warm gold */
+    --primary: #9d9093; /* about me section */
+    --secondary: #f7f3ed; /* Brighter warm gold caption */
     --light: #ffffff; /* Pure white for better contrast */
-    --dark: #00382e; /* Deeper dark green */
+    --dark: #717F76; /* Hero section background */
     --focus: #f0d78e; /* Brighter gold for focus states */
-    --accent: #e67e22; /* Orange accent color */
+    --accent: #717F76; /* κουμπί κλείσε ραντεβού και αποστολή */
     --text-light: #f9f9f9; /* Light text color */
-    --success: #27ae60; /* Green for success messages */
+    --success: #27ae60; /* 1st page */
     --error: #e74c3c; /* Red for error messages */
 }
 
@@ -98,7 +98,8 @@ header.scrolled {
 }
 .navbar {
     max-width: 1250px; margin: 0 auto;
-    padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+    padding: 0.6rem 1.2rem; /* Reduced vertical and horizontal padding to shrink header area */
+    display: flex; justify-content: space-between; align-items: center;
 }
 .logo { 
     display: flex;
@@ -116,9 +117,10 @@ header.scrolled {
 }
 
 .logo-img {
-    width: auto;
-    height: 40px;
-    border-radius: 0;
+    width: 60px; /* Make square so border-radius can form a circle */
+    height: 60px; /* Enlarged logo */
+    border-radius: 50%; /* Make the logo round */
+    object-fit: cover; /* Crop/scale to fill the circle */
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
@@ -132,7 +134,10 @@ header.scrolled {
     }
     
     .logo-img {
-        height: 35px; /* Slightly smaller logo on mobile */
+    width: 125px; /* Bigger logo on small mobile screens */
+    height: 125px; /* Bigger logo on small mobile screens */
+        border-radius: 50%;
+        object-fit: cover;
     }
 }
 
@@ -143,14 +148,42 @@ header.scrolled {
 /* Mobile Navigation Styles */
 .mobile-nav-toggle {
     display: none; /* Hidden by default, shown via media query */
-    background: none;
+    /* Styled, larger toggle button for mobile — keeps a professional, calming look */
+    background: var(--secondary);
     border: none;
-    color: var(--light);
-    font-size: 2.2rem; /* Slightly larger for better tap target */
+    color: var(--dark);
+    width: 56px; /* larger tap target */
+    height: 56px;
+    font-size: 1.4rem; /* hamburger glyph size */
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0; /* center content via flex */
     line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px; /* soft, professional rounding */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    /* smoother, gentle easing for a professional feel */
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease, background 220ms ease;
     z-index: 1002; /* Ensure it's above the panel when closed, but clickable */
+}
+
+.mobile-nav-toggle:hover {
+    /* preserve vertical centering from media query and only scale to avoid jump */
+    transform: translateY(-50%) scale(1.06);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+}
+
+.mobile-nav-toggle:focus-visible {
+    outline: 3px solid rgba(240,215,142,0.6);
+    outline-offset: 3px;
+}
+
+/* enlarge the inner hamburger glyph so it's clear and professional */
+.mobile-nav-toggle > span {
+    display: inline-block;
+    font-size: 1.9rem; /* larger glyph */
+    line-height: 1; /* avoid extra height changes */
 }
 
 .mobile-nav-panel {
@@ -246,6 +279,42 @@ header.scrolled {
 @media (max-width: 768px) { /* Adjust breakpoint as needed */
     .desktop-nav { display: none; }
     .mobile-nav-toggle { display: block; }
+
+    /* Slightly reduce the header area on mobile while keeping logo intact */
+    header {
+        padding: 0.6rem 0; /* reduce vertical space */
+        min-height: 60px; /* slightly smaller header height on mobile */
+    }
+
+    /* Center the logo in mobile layout while keeping the hamburger usable */
+    .navbar {
+        justify-content: center; /* center the .logo */
+        position: relative; /* allow absolute positioning of the toggle */
+        padding: 0.8rem 0.8rem; /* tighter internal spacing for mobile */
+    }
+
+    .mobile-nav-toggle {
+    position: absolute;
+    right: 1rem; /* keep toggle on the right edge */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1002; /* ensure it's above header content */
+        /* Slightly increase visual scale on smaller devices */
+        width: 56px;
+        height: 56px;
+        font-size: 1.45rem;
+    }
+    /* Pull hero content up on mobile so the H1 starts higher on the page */
+    .hero {
+        padding-top: 0; /* remove extra top padding so headline moves up */
+        min-height: 78vh; /* slightly reduce to compensate visually */
+        display: grid; /* ensure centering still works */
+        place-items: start center; /* align content to top-center */
+    }
+    /* Nudge the inner hero content upward so the H1 starts much closer to the top on mobile */
+    .hero > div {
+        transform: translateY(-50px); /* stronger upward nudge */
+    }
     /* .navbar ul { */ /* This was a previous rule, might conflict or be redundant */
         /* flex-direction: column; */ /* Remove if using panel */
         /* align-items: center; */ /* Remove if using panel */
@@ -333,10 +402,16 @@ section { padding: 4rem 1.2rem; }
 
 .container { max-width: 1200px; margin: 0 auto; }
 
-/* ------------------ HERO ------------------ */
+/* ------------------ HERO ------------------ απολαύστε*/
 .hero {
-    min-height: 92vh; display: grid; place-items: center; text-align: center; padding: 2rem;
-    background: linear-gradient(rgba(15,45,31,0.8),rgba(15,45,31,0.8)), url('https://images.unsplash.com/photo-1589274933413-adf30c64a4ef?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+    min-height: 92vh; 
+    display: grid; 
+    place-items: center; 
+    text-align: center; 
+    padding: 2rem;
+    /* Use taupe overlay (#9d9093) instead of green */
+    background: linear-gradient(rgba(157,144,147,0.85), rgba(157,144,147,0.85)), 
+                url('https://images.unsplash.com/photo-1589274933413-adf30c64a4ef?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
 }
 .hero p { font-size: clamp(1rem, 2.3vw, 1.3rem); max-width: 680px; margin: 0 auto 2rem; }
 
@@ -349,7 +424,11 @@ section { padding: 4rem 1.2rem; }
     gap: 2rem; /* Increased gap for better separation */
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Adjusted minmax for content */
 }
-.service-card {  background: var(--dark); 
+.service-card {  
+    /* Service card base color (taupe) with subtle gold sheen; page background remains #717F76 */
+    background-color: #9d9093; /* taupe */
+    background-image: linear-gradient(180deg, rgba(219,200,147,0.06), rgba(219,200,147,0.02));
+    background-blend-mode: overlay;
     padding: 2rem 1.5rem; 
     border-radius: 15px; 
     text-align: center;
@@ -417,7 +496,7 @@ table th, table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px
     position: relative;
     max-width: 800px;
     margin: 0 auto 2rem;
-    overflow: hidden;
+    overflow: visible; /* allow nav arrows positioned outside to remain visible */
 }
 
 .testimonial-container {
@@ -664,9 +743,24 @@ table th, table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px
 
 /* ------------------ CONTACT FORM ------------------ */
 form { display: grid; gap: 1rem; max-width: 650px; margin: 0 auto; }
-input, textarea { width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: none; background:#105a52; color: var(--light); }
+/* Form fields: use a tint slightly lighter than --dark (#717F76) so they're not dark green */
+input, textarea { width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: none; background: #85938A; color: var(--light); }
 textarea { resize: vertical; min-height: 160px; }
-input::placeholder, textarea::placeholder { color:#9db8a5; }
+/* Form labels and placeholders: make labels white and bold, placeholders strongly readable */
+form label,
+.contact-form label,
+.contact-us label {
+    color: var(--light); /* white */
+    font-weight: 700; /* bold */
+}
+
+/* Placeholder styling — white and strong for legibility on tinted inputs */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255,255,255,0.95);
+    font-weight: 700;
+    opacity: 0.95;
+}
 
 /* ------------------ ACCESSIBILITY BADGE ------------------ */
 .accessible-badge {
@@ -676,7 +770,7 @@ input::placeholder, textarea::placeholder { color:#9db8a5; }
 .accessible-badge svg { width: 20px; height: 20px; fill: var(--secondary); }
 
 /* ------------------ FOOTER ------------------ */
-footer { background:#00251e; text-align: center; padding: 2rem 1rem; color:#a0c5bf; font-size: 0.95rem; }
+footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var(--light); font-size: 0.95rem; }
 
 /* ------------------ BACK TO TOP ------------------ */
 #topBtn { display:none; position:fixed; bottom:30px; right:30px; background:var(--secondary); color:var(--dark); padding:0.75rem 1.05rem; border:none; border-radius:50px; cursor:pointer; font-size:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.35); transition:transform 0.3s ease; }
@@ -684,7 +778,7 @@ footer { background:#00251e; text-align: center; padding: 2rem 1rem; color:#a0c5
 
 /* ------------------ DISCOVER REFLEXOLOGY (NEW STYLES) ------------------ */
 #discover-reflexology {
-    background: var(--dark);
+    background: #9d9093; /* ensured taupe color as requested (replaces var(--dark) which showed green) */
     padding: 5rem 1.2rem;
 }
 
@@ -769,7 +863,10 @@ footer { background:#00251e; text-align: center; padding: 2rem 1rem; color:#a0c5
 }
 
 .benefit-card-new {
-    background: #132920; /* Slightly lighter than var(--dark) or a contrasting dark shade */
+    /* Benefit cards match services color and keep a subtle gold sheen */
+    background-color: #717F76; /* match requested services/benefits box color */
+    background-image: linear-gradient(180deg, rgba(219,200,147,0.06), rgba(219,200,147,0.02));
+    background-blend-mode: overlay;
     padding: 2rem 1.5rem;
     border-radius: 12px;
     text-align: center;
@@ -951,9 +1048,9 @@ footer { background:#00251e; text-align: center; padding: 2rem 1rem; color:#a0c5
 }
 
 .chat-logo {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    width: 40px; /* Reverted to original compact avatar */
+    height: 40px;
+    border-radius: 50%; /* Circular avatar */
     object-fit: cover;
 }
 
@@ -1234,7 +1331,8 @@ footer { background:#00251e; text-align: center; padding: 2rem 1rem; color:#a0c5
     }
     
     .logo-img {
-        height: 32px;
+        width: 56px;
+        height: 56px;
     }
 }
 
