@@ -158,7 +158,6 @@ header.scrolled {
     cursor: pointer;
     padding: 0; /* center content via flex */
     line-height: 1;
-    display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 12px; /* soft, professional rounding */
