@@ -134,8 +134,8 @@ header.scrolled {
     }
     
     .logo-img {
-    width: 125px; /* Bigger logo on small mobile screens */
-    height: 125px; /* Bigger logo on small mobile screens */
+    width: 150px; /* Bigger logo on small mobile screens */
+    height: 150px; /* Bigger logo on small mobile screens */
         border-radius: 50%;
         object-fit: cover;
     }
@@ -290,6 +290,14 @@ header.scrolled {
         justify-content: center; /* center the .logo */
         position: relative; /* allow absolute positioning of the toggle */
         padding: 0.8rem 0.8rem; /* tighter internal spacing for mobile */
+    }
+
+    /* Make the logo larger on phones/tablets for better presence */
+    .logo-img {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     .mobile-nav-toggle {
