@@ -425,6 +425,59 @@ section { padding: 4rem 1.2rem; }
 /* ------------------ ABOUT ------------------ */
 .about-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); align-items: center; }
 
+/* Mobile: make portrait a bit larger and align nicely with text */
+@media (max-width: 767px) {
+    /* Use two balanced columns on most phones so image sits beside text */
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        align-items: center; /* vertically center text and image */
+    }
+
+    .about-grid img.parallax {
+        /* Allow the portrait to be larger but keep it contained */
+        width: 100%;
+        max-width: 220px; /* a bit bigger on mobile */
+        height: auto;
+        justify-self: center;
+        margin: 0; /* remove extra spacing */
+        border-radius: 12px;
+        transform: none; /* avoid unexpected parallax transform during layout */
+    }
+
+    /* Ensure text block aligns vertically and doesn't shift under the image */
+    .about-grid .slide-in-left,
+    .about-grid .slide-in-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* Very small phones: slightly reduce portrait max-width so layout doesn't break */
+@media (max-width: 360px) {
+    .about-grid img.parallax { max-width: 160px; }
+    .about-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .about-grid .slide-in-left, .about-grid .slide-in-right { align-items: center; text-align: center; }
+}
+
+/* Desktop: make portrait slightly smaller so it doesn't dominate the about area */
+@media (min-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1.2fr 0.8fr; /* give text a bit more room */
+        align-items: center;
+        gap: 2.25rem;
+    }
+
+    .about-grid img.parallax {
+        width: auto; /* override global img width:100% */
+        max-width: 320px; /* slightly smaller on desktop */
+        height: auto;
+        justify-self: end; /* tuck the image toward the right of its column */
+        margin: 0;
+    }
+}
+
 /* ------------------ SERVICES ------------------ */
       .services-grid { 
     display: grid; 
@@ -780,7 +833,10 @@ textarea::placeholder {
 footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var(--light); font-size: 0.95rem; }
 
 /* ------------------ BACK TO TOP ------------------ */
-#topBtn { display:none; position:fixed; bottom:30px; right:30px; background:var(--secondary); color:var(--dark); padding:0.75rem 1.05rem; border:none; border-radius:50px; cursor:pointer; font-size:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.35); transition:transform 0.3s ease; }
+#topBtn { display:none; position:fixed; /* use safe-area inset so controls stay above mobile UI */
+    bottom: calc(30px + constant(safe-area-inset-bottom));
+    bottom: calc(30px + env(safe-area-inset-bottom));
+    right: 30px; background:var(--secondary); color:var(--dark); padding:0.75rem 1.05rem; border:none; border-radius:50px; cursor:pointer; font-size:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.35); transition:transform 0.3s ease; }
 #topBtn:hover { transform:translateY(-4px); }
 
 /* ------------------ DISCOVER REFLEXOLOGY (NEW STYLES) ------------------ */
@@ -884,6 +940,48 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
     align-items: center;
 }
 
+/* Ensure SVG icons inside benefit cards are consistent size and color */
+.benefit-icon-new svg {
+    width: 44px; /* preserves approximate size of previous emoji */
+    height: 44px;
+    color: var(--secondary);
+    flex: 0 0 44px;
+}
+.benefit-icon-new {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px; /* space around icon */
+    height: 64px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+}
+
+/* Bullet lists inside benefit cards */
+.benefit-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.6rem 0 0 0;
+    color: var(--light);
+    line-height: 1.6;
+}
+.benefit-list li::before {
+    content: "•";
+    color: var(--focus);
+    display: inline-block;
+    width: 1.2em;
+    margin-left: -1.2em;
+    font-weight: 700;
+}
+
+.benefits-note {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+}
+
 .benefit-card-new:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 20px rgba(219, 200, 147, 0.15);
@@ -970,7 +1068,9 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
 /* Chat Interface */
 .chat-icon {
     position: fixed;
-    bottom: 30px;
+    /* anchor above mobile UI using safe-area inset */
+    bottom: calc(30px + constant(safe-area-inset-bottom));
+    bottom: calc(30px + env(safe-area-inset-bottom));
     left: 30px;
     width: 60px;
     height: 60px;
@@ -1302,11 +1402,12 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
     }
     
     .chat-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
-        bottom: 50px; /* moved down closer to bottom */
-        left: 18px; /* a bit more to the left */
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    bottom: calc(50px + constant(safe-area-inset-bottom));
+    bottom: calc(50px + env(safe-area-inset-bottom));
+    left: 18px; /* a bit more to the left */
     }
     
     #topBtn {
@@ -1380,8 +1481,9 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
     
     /* Ensure chat icon doesn't overlap with content */
     .chat-icon {
-        bottom: 50px; /* moved down closer to bottom */
-        left: 18px; /* shift a bit to the left for mobile */
+    bottom: calc(50px + constant(safe-area-inset-bottom));
+    bottom: calc(50px + env(safe-area-inset-bottom));
+    left: 18px; /* shift a bit to the left for mobile */
     }
     
     /* Ensure lightbox controls are easily tappable */

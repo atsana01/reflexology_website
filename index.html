@@ -28,6 +28,7 @@
                 <ul>
                     <li><a href="#home">Αρχική</a></li>
                     <li><a href="#about">Σχετικά</a></li>
+                    <li><a href="#discover-reflexology">Πληροφορίες</a></li>
                     <li><a href="#services">Υπηρεσίες</a></li>
                     <li><a href="#gallery">Εικόνες</a></li>
                     <li><a href="#location">Τοποθεσία</a></li>
@@ -45,6 +46,7 @@
         <ul>
             <li><a href="#home">Αρχική</a></li>
             <li><a href="#about">Σχετικά</a></li>
+            <li><a href="#discover-reflexology">Πληροφορίες</a></li>
             <li><a href="#services">Υπηρεσίες</a></li>
             <li><a href="#gallery">Εικόνες</a></li>
             <li><a href="#location">Τοποθεσία</a></li>
@@ -69,96 +71,157 @@
         <div class="container about-grid">
             <div class="slide-in-left">
                 <h2 id="about-heading">Γνωρίστε την Αναστασία</h2>
-                <p>Η <strong>Αναστασία</strong> είναι πιστοποιημένη ρεφλεξολόγος με βαθιά αγάπη για τον άνθρωπο και την ολιστική φροντίδα. Μετά από χρόνια εκπαίδευσης και εμπειρίας, δημιούργησε έναν φιλόξενο και πλήρως προσβάσιμο χώρο, όπου κάθε συνεδρία σχεδιάζεται με σεβασμό στις ανάγκες του κάθε ατόμου.</p>
+                <p>Η <strong>Αναστασία</strong> είναι πιστοποιημένη ρεφλεξολόγος με πολυετή εμπειρία και αφοσίωση στην ολιστική φροντίδα. Στον σύγχρονο και πλήρως προσβάσιμο χώρο της, προσφέρει εξατομικευμένες θεραπείες που ανακουφίζουν από το άγχος, βελτιώνουν τον ύπνο και ενισχύουν τη συνολική ευεξία.</p>
 
-                <p>Με τις θεραπείες της βοηθά το σώμα να επανακτήσει τη φυσική του ισορροπία, μειώνοντας το άγχος, βελτιώνοντας τον ύπνο και ενισχύοντας την ευεξία. Κάθε συνάντηση είναι μια μοναδική εμπειρία χαλάρωσης και αναζωογόνησης, που σας φέρνει πιο κοντά στον εαυτό σας.</p>
-
-                <p>Ο στόχος της Αναστασίας είναι να προσφέρει όχι απλώς μια θεραπεία, αλλά μια στιγμή φροντίδας και ηρεμίας – μια μικρή επένδυση στην υγεία και την ποιότητα ζωής σας.</p>
+                <p>Στόχος της είναι κάθε συνεδρία να αποτελεί μια ουσιαστική εμπειρία χαλάρωσης και αναζωογόνησης – μια πραγματική επένδυση στην υγεία και την ποιότητα ζωής σας.</p>
 
                 <span class="accessible-badge scale-in" aria-label="Προσβάσιμο για ΑΜΕΑ">
                     <!-- Simple wheelchair icon -->
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 11h-1V5a3 3 0 10-2 0v6a1 1 0 001 1h3a3 3 0 010 6h-1v2h1a5 5 0 000-10zM8 21a4 4 0 100-8 4 4 0 000 8z"/></svg>
-                    <span>Προσβάσιμος Χώρος</span>
-                </span>
-            </div>
-            <div class="slide-in-right">
-                <img src="pictures/portrait.png" alt="Διάγραμμα αντανακλαστικών σημείων στα πόδια" class="parallax" data-speed="0.05" loading="lazy">
-            </div>
-        </div>
-    </section>
+                    const reflexologyContent = {
+                        welcome: {
+                            message: "Καλώς ήρθατε στο χώρο ρεφλεξολογίας της Αναστασίας! Πώς μπορώ να σας βοηθήσω σήμερα;",
+                            options: [
+                                { text: "Τι είναι η ρεφλεξολογία;", value: "what_is_reflexology" },
+                                { text: "Ποια τα οφέλη της;", value: "benefits" },
+                                { text: "Πώς κλείνω ραντεβού;", value: "booking" },
+                                { text: "Τιμές υπηρεσιών", value: "prices" },
+                                { text: "Ώρες λειτουργίας", value: "hours" },
+                                { text: "Προσβασιμότητα χώρο", value: "accessibility" },
+                                { text: "Προετοιμασία για συνεδρία", value: "preparation" },
+                                { text: "Μετά τη συνεδρία (φροντίδα)", value: "aftercare" },
+                                { text: "Πληρωμές & Δώρα", value: "payments" },
+                                { text: "Δωροκάρτες / Vouchers", value: "vouchers" },
+                                { text: "Γλώσσες εξυπηρέτησης", value: "languages" },
+                                { text: "Σύντομο βιογραφικό", value: "therapist_bio" },
+                                { text: "Πληροφορίες - Ανακάλυψη", value: "discover_highlights" }
+                            ]
+                        },
+                        what_is_reflexology: {
+                            message: "Η ρεφλεξολογία είναι μια ολιστική μέθοδος που ενεργοποιεί αντανακλαστικά σημεία στα πέλματα, τις παλάμες και τα αυτιά, για να υποστηρίξει την κυκλοφορία, την ενέργεια και την συνολική ευεξία.",
+                            options: [
+                                { text: "Πώς λειτουργεί;", value: "how_it_works" },
+                                { text: "Ποια τα οφέλη της;", value: "benefits" },
+                                { text: "Είναι κατάλληλη για μένα;", value: "suitable_for_me" }
+                            ]
+                        },
+                        how_it_works: {
+                            message: "Ο ρεφλεξολόγος εφαρμόζει στοχευμένη πίεση σε αντανακλαστικές ζώνες. Αυτή η διέγερση βοηθά στην απελευθέρωση ενέργειας, την καλύτερη κυκλοφορία και την ενεργοποίηση μηχανισμών αυτοθεραπείας.",
+                            options: [
+                                { text: "Ποια τα οφέλη;", value: "benefits" },
+                                { text: "Θέλω να κλείσω ραντεβού", value: "booking" }
+                            ]
+                        },
+                        benefits: {
+                            message: "Κύρια οφέλη:\n• Μείωση στρες και έντασης\n• Καλύτερος ύπνος\n• Ενίσχυση ανοσοποιητικού\n• Ανακούφιση μυοσκελετικών πόνων\n• Βελτίωση πέψης και ενεργειακών επιπέδων\n\nΠοιο από αυτά σας ενδιαφέρει περισσότερο;",
+                            options: [
+                                { text: "Ύπνος & Χαλάρωση", value: "benefit_sleep" },
+                                { text: "Ανοσοποιητικό", value: "benefit_immunity" },
+                                { text: "Μυοσκελετικά", value: "benefit_musculoskeletal" },
+                                { text: "Πεπτικό", value: "benefit_digestion" },
+                                { text: "Θέλω ραντεβού", value: "booking" }
+                            ]
+                        },
+                        benefit_sleep: { message: "Η ρεφλεξολογία βοηθά στη χαλάρωση του νευρικού συστήματος και στη ρύθμιση του ύπνου με φυσικό τρόπο.", options: [{ text: "Θέλω ραντεβού", value: "booking" }] },
+                        benefit_immunity: { message: "Μέσω της τόνωσης της κυκλοφορίας και της μείωσης του στρες, η ρεφλεξολογία υποστηρίζει τις φυσικές άμυνες του οργανισμού.", options: [{ text: "Θέλω ραντεβού", value: "booking" }] },
+                        benefit_musculoskeletal: { message: "Μπορεί να βοηθήσει στη μείωση πόνων, στην αύξηση ευλυγισίας και στη γενική ανακούφιση μυοσκελετικών συμπτωμάτων.", options: [{ text: "Θέλω ραντεβού", value: "booking" }] },
+                        benefit_digestion: { message: "Υποστηρίζει τη λειτουργία του πεπτικού συστήματος και μειώνει συμπτώματα δυσφορίας στην κοιλιά.", options: [{ text: "Θέλω ραντεβού", value: "booking" }] },
+                        suitable_for_me: {
+                            message: "Η μέθοδος είναι κατάλληλη για τους περισσότερους, αλλά δεν ενδείκνυται σε περιπτώσεις θρόμβωσης, σοβαρών μολύνσεων ή ανοικτών πληγών. Σε ειδικές καταστάσεις (εγκυμοσύνη, σοβαρά νοσήματα) θα συζητήσουμε πριν τη συνεδρία.",
+                            options: [
+                                { text: "Θέλω ραντεβού", value: "booking" },
+                                { text: "Επιστροφή στο κύριο μενού", value: "welcome" }
+                            ]
+                        },
+                        sessions_needed: {
+                            message: "Συνήθως προτείνουμε 4-6 συνεδρίες για συγκεκριμένα προβλήματα και στη συνέχεια συντήρηση ανά 2-4 εβδομάδες. Για ευεξία, μια μηνιαία συνεδρία είναι επαρκής για πολλούς.",
+                            options: [
+                                { text: "Κλείνω ραντεβού", value: "booking" },
+                                { text: "Τιμές", value: "prices" }
+                            ]
+                        },
+                        prices: {
+                            message: "Τιμές:\n• Ρεφλεξολογία 45' — 30€\n• Express 30' — 20€\n• Πακέτο 10 συνεδριών — 270€\n• Ρεφλεξολογία Κεφαλής/Προσώπου — 25€",
+                            options: [
+                                { text: "Θέλω ραντεβού", value: "booking" },
+                                { text: "Επιστροφή", value: "welcome" }
+                            ]
+                        },
+                        booking: {
+                            message: "Μπορείτε να κλείσετε:\n• Τηλεφωνικά: 697 622 2211\n• Email: anastasiareflexology@gmail.com\n• Φόρμα στην ιστοσελίδα (θα σας μεταφέρω). Θέλετε βοήθεια τώρα;",
+                            options: [
+                                { text: "Ναι, συμπλήρωση φόρμας", value: "form" },
+                                { text: "Θα καλέσω τηλεφωνικά", value: "call" },
+                                { text: "Θα στείλω email", value: "email" }
+                            ]
+                        },
+                        form: { message: "Ανοίγω τη φόρμα επικοινωνίας...", options: [{ text: "Μετάβαση στη φόρμα", value: "goto_form" }] },
+                        call: { message: "Καλέστε μας στο 697 622 2211. Ώρες: Δευ-Παρ 10:00–20:00, Σαβ 10:00–15:00.", options: [{ text: "Επιστροφή", value: "welcome" }, { text: "Τέλος συνομιλίας", value: "end_chat" }] },
+                        email: { message: "Στείλτε email στο anastasiareflexology@gmail.com με προτιμήσεις ημέρας/ώρας — απαντάμε εντός 24 ωρών.", options: [{ text: "Επιστροφή", value: "welcome" }, { text: "Τέλος συνομιλίας", value: "end_chat" }] },
+                        hours: { message: "Ώρες Λειτουργίας:\nΔευτέρα — Παρασκευή: 10:00–20:00\nΣάββατο: 10:00–15:00\nΚυριακή: Κλειστά\n(Δυνατότητα εκτός ωραρίου κατόπιν συνεννόησης).", options: [{ text: "Κλείνω ραντεβού", value: "booking" }, { text: "Επιστροφή", value: "welcome" }] },
+                        accessibility: { message: "Ο χώρος είναι πλήρως προσβάσιμος για ΑΜΕΑ. Υπάρχει ράμπα και ευρύχωρος χώρος θεραπείας για άνετη πρόσβαση.", options: [{ text: "Πώς θα έρθω;", value: "parking" }, { text: "Επιστροφή", value: "welcome" }] },
+                        parking: { message: "Υπάρχουν διαθέσιμες θέσεις κοντά στο κατάστημα και δημόσιος χώρος στάθμευσης σε μικρή απόσταση. Σε περίπτωση ανάγκης, επικοινωνήστε και θα σας κατευθύνουμε.", options: [{ text: "Επιστροφή", value: "welcome" }] },
+                        preparation: { message: "Για καλύτερο αποτέλεσμα, έρχεστε με άνετα ρούχα και αποφεύγετε βαριά γεύματα αμέσως πριν τη συνεδρία. Ενημερώστε για φάρμακα ή ιατρικά θέματα.", options: [{ text: "Θέλω ραντεβού", value: "booking" }, { text: "Επιστροφή", value: "welcome" }] },
+                        aftercare: { message: "Μετά τη συνεδρία προτείνουμε: να πιείτε νερό, να αποφύγετε έντονη άσκηση την ίδια μέρα και να ακούσετε το σώμα σας. Επικοινωνήστε αν εμφανιστούν επίμονες ενοχλήσεις.", options: [{ text: "Επιστροφή", value: "welcome" }] },
+                        payments: { message: "Δεχόμαστε μετρητά και κάρτες. Υπάρχει δυνατότητα ηλεκτρονικής πληρωμής για πακέτα και δωροκάρτες.", options: [{ text: "Δωροκάρτες", value: "vouchers" }, { text: "Επιστροφή", value: "welcome" }] },
+                        vouchers: { message: "Δωροκάρτες είναι διαθέσιμες — επικοινωνήστε για έκδοση και ηλεκτρονική αποστολή ως δώρο. Ιδανικό για ειδικές περιστάσεις.", options: [{ text: "Θέλω δωροκάρτα", value: "contact_voucher" }, { text: "Επιστροφή", value: "welcome" }] },
+                        contact_voucher: { message: "Στείλτε μήνυμα ή email με τα στοιχεία του παραλήπτη και θα προετοιμάσουμε τη δωροκάρτα.", options: [{ text: "Στείλτε email", value: "email" }, { text: "Κλείνω ραντεβού", value: "booking" }] },
+                        languages: { message: "Εξυπηρετούμε στα Ελληνικά και στα Αγγλικά. Για άλλες γλώσσες, παρακαλώ ενημερώστε πριν τη συνεδρία.", options: [{ text: "Επιστροφή", value: "welcome" }] },
+                        therapist_bio: { message: "Η Αναστασία είναι πιστοποιημένη ρεφλεξολόγος με πολυετή εμπειρία στην ολιστική φροντίδα. Χρησιμοποιεί εξατομικευμένες τεχνικές και εργάζεται με σεβασμό στην ατομική ιστορία του κάθε πελάτη.", options: [{ text: "Περισσότερα για τις υπηρεσίες", value: "services" }, { text: "Θέλω ραντεβού", value: "booking" }] },
+                        services: { message: "Προσφέρουμε: Ρεφλεξολογία 45', Express 30', Πακέτα 10 συνεδριών, Ρεφλεξολογία Κεφαλής & Προσώπου. Δείτε τις λεπτομέρειες στη σελίδα Υπηρεσίες.", options: [{ text: "Κλείνω ραντεβού", value: "booking" }, { text: "Τιμές", value: "prices" }] },
+                        discover_highlights: { message: "Highlights:\n• Ολιστική προσέγγιση\n• Πλήρως προσβάσιμος χώρος\n• Χαλαρωτικό περιβάλλον και εξατομικευμένα πλάνα\n• Αξιολόγηση πριν από κάθε συνεδρία", options: [{ text: "Θέλω ραντεβού", value: "booking" }, { text: "Επιστροφή", value: "welcome" }] },
+                        end_chat: { message: "Ευχαριστούμε που επικοινωνήσατε! Ελπίζουμε να σας δούμε σύντομα.", options: [] }
+                    };
+                                <circle cx="12" cy="11" r="1" />
+                                <circle cx="12" cy="15" r="1" />
+                                <circle cx="12" cy="19" r="1" />
+                            </svg>
+                        </span>
+                        <h4>Μυοσκελετικά Προβλήματα</h4>
+                        <ul class="benefit-list">
+                            <li>Βελτιώνει την τοπική κυκλοφορία</li>
+                            <li>Ανακουφίζει από πόνους και κράμπες</li>
+                            <li>Προάγει χαλάρωση και ευελιξία</li>
+                        </ul>
+                    </div>
 
-    
-     <!-- ================================== DISCOVER REFLEXOLOGY (NEW) ================================== -->
-    <section id="discover-reflexology" aria-labelledby="discover-heading">
-        <div class="container fade-in">
-            <header class="discover-header">
-                <h2 id="discover-heading">Ανακαλύψτε τη Ρεφλεξολογία</h2>
-                <p>Μια πανάρχαια τέχνη αφής, ένα μονοπάτι προς τη βαθιά χαλάρωση και την εσωτερική ισορροπία.</p>
-                <ul class="discover-highlights" style="list-style:none;padding:0;margin:1rem auto 0;display:flex;flex-direction:column;gap:0.6rem;align-items:center;max-width:760px;color:var(--light);font-weight:700;">
-                    <li style="background:rgba(255,255,255,0.03);padding:0.6rem 1rem;border-radius:12px;display:flex;align-items:center;gap:0.6rem;width:100%;justify-content:center;">
-                        <span style="font-size:1.25rem;">✨</span>
-                        <span>Αναζωογονεί σώμα και νου</span>
-                    </li>
-                    <li style="background:rgba(255,255,255,0.03);padding:0.6rem 1rem;border-radius:12px;display:flex;align-items:center;gap:0.6rem;width:100%;justify-content:center;">
-                        <span style="font-size:1.25rem;">✨</span>
-                        <span>Μειώνει στρες και ένταση</span>
-                    </li>
-                    <li style="background:rgba(255,255,255,0.03);padding:0.6rem 1rem;border-radius:12px;display:flex;align-items:center;gap:0.6rem;width:100%;justify-content:center;">
-                        <span style="font-size:1.25rem;">✨</span>
-                        <span>Υποστηρίζει φυσικές διαδικασίες αυτοΐασης</span>
-                    </li>
-                    <li style="background:rgba(255,255,255,0.03);padding:0.6rem 1rem;border-radius:12px;display:flex;align-items:center;gap:0.6rem;width:100%;justify-content:center;">
-                        <span style="font-size:1.25rem;">✨</span>
-                        <span>Προάγει ενέργεια, χαλάρωση και ισορροπία</span>
-                    </li>
-                </ul>
-            </header>
+                    <div class="benefit-card-new">
+                        <span class="benefit-icon-new" aria-hidden="true">
+                            <!-- Scales / balance (hormonal balance) -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M3 7h18" />
+                                <path d="M7 7v6" />
+                                <path d="M17 7v6" />
+                                <path d="M5 13c2 3 4 3 6 0" />
+                                <path d="M13 13c2 3 4 3 6 0" />
+                                <path d="M12 3v4" />
+                            </svg>
+                        </span>
+                        <h4>Ορμονική Ισορροπία</h4>
+                        <ul class="benefit-list">
+                            <li>Υποστηρίζει ωοθήκες και επινεφρίδια</li>
+                            <li>Μειώνει συμπτώματα εμμηνόπαυσης/ακανόνιστης ρύσης</li>
+                            <li>Ενισχύει την ψυχική ισορροπία</li>
+                        </ul>
+                    </div>
 
-            <div class="discover-main-content">
-                <div class="discover-image-wrapper">
-                    <img src="pictures/chart.jpg" alt="Διάγραμμα αντανακλαστικών σημείων ρεφλεξολογίας" style="width: 100%; max-width: 600px; display: block; margin: 20px auto;" loading="lazy">
-                </div>
-                <div class="discover-text">
-                    <h3>Τι Είναι Πραγματικά η Ρεφλεξολογία;</h3>
-                    <p>Η ρεφλεξολογία είναι μια ολιστική θεραπευτική μέθοδος που βασίζεται στην ύπαρξη αντανακλαστικών σημείων στα πέλματα, τις παλάμες και τα αυτιά. Κάθε τέτοιο σημείο συνδέεται ενεργειακά με συγκεκριμένα όργανα, αδένες και μέρη του σώματος.</p>
-                    <p>Μέσω εξειδικευμένων πιέσεων και φυσικών χειρισμών σε αυτά τα σημεία, ο ρεφλεξολόγος στοχεύει στην απελευθέρωση της ενέργειας, την τόνωση της κυκλοφορίας και την ενεργοποίηση των φυσικών μηχανισμών αυτοθεραπείας του σώματος, οδηγώντας σε μια κατάσταση αρμονίας και ευεξίας.</p>
-                </div>
-            </div>
-
-            <div class="reflexology-benefits-section">
-                <h3 class="benefits-title">Τα Οφέλη που Αγγίζουν την Ευεξία σας</h3>
-                <div class="benefits-grid-new">
                     <div class="benefit-card-new">
-                        <span class="benefit-icon-new">🧘</span>
-                        <h4>Βαθιά Χαλάρωση</h4>
-                        <p>Μειώνει το στρες και την ένταση, προσφέροντας μια αίσθηση ηρεμίας και γαλήνης.</p>
-                    </div>
-                    <div class="benefit-card-new">
-                        <span class="benefit-icon-new">✨</span>
-                        <h4>Ανακούφιση από Πόνους</h4>
-                        <p>Μπορεί να βοηθήσει σε πονοκεφάλους, ημικρανίες, και μυοσκελετικές ενοχλήσεις.</p>
-                    </div>
-                    <div class="benefit-card-new">
-                        <span class="benefit-icon-new">🩸</span>
-                        <h4>Βελτίωση Κυκλοφορίας</h4>
-                        <p>Ενισχύει τη ροή του αίματος και του οξυγόνου σε όλο το σώμα.</p>
-                    </div>
-                    <div class="benefit-card-new">
-                        <span class="benefit-icon-new">🛡️</span>
-                        <h4>Ενίσχυση Ανοσοποιητικού</h4>
-                        <p>Τονώνει το λεμφικό σύστημα και την φυσική άμυνα του οργανισμού.</p>
-                    </div>
-                    <div class="benefit-card-new">
-                        <span class="benefit-icon-new">😴</span>
-                        <h4>Καλύτερος Ύπνος</h4>
-                        <p>Συμβάλλει στην αντιμετώπιση της αϋπνίας και βελτιώνει την ποιότητα του ύπνου.</p>
-                    </div>
-                    <div class="benefit-card-new">
-                        <span class="benefit-icon-new">🌿</span>
-                        <h4>Φυσική Αποτοξίνωση</h4>
-                        <p>Υποστηρίζει τις φυσικές διαδικασίες αποβολής τοξινών από το σώμα.</p>
+                        <span class="benefit-icon-new" aria-hidden="true">
+                            <!-- Stomach / digestion -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M7 8c2-3 10-3 11 1 1 4-1 8-6 9-5 1-6-3-6-6 0-2 0-3 1-4z" />
+                                <path d="M9 11c1 1 3 1 4 0" />
+                            </svg>
+                        </span>
+                        <h4>Πεπτικό Σύστημα</h4>
+                        <ul class="benefit-list">
+                            <li>Υποστηρίζει πέψη και λειτουργία εντέρων</li>
+                            <li>Μειώνει δυσφορία και βάρος στην κοιλιά</li>
+                            <li>Ενισχύει ενέργεια και αίσθηση άνεσης</li>
+                        </ul>
                     </div>
                 </div>
+                <p class="benefits-note">Σημείωση: Οι θεραπείες είναι συμπληρωματικές και δεν αντικαθιστούν ιατρική διάγνωση ή αγωγή. Αν έχετε ιατρική πάθηση, συμβουλευτείτε τον ιατρό σας.</p>
                 <div class="discover-cta-wrapper">
                     <a href="#contact" class="btn btn-secondary btn-icon">
                         <i class="fas fa-spa"></i> Ζήστε την Εμπειρία της Ρεφλεξολογίας
@@ -185,17 +248,19 @@
                     <p class="service-description">Επωφεληθείτε από την ειδική μας προσφορά για ολοκληρωμένη φροντίδα.</p>
                     <p class="service-price-tag">270€</p>
                 </div>
-                <div class="service-card">
-                    <h3>Express Ρεφλεξολογία</h3>
-                    <p class="service-duration">30 λεπτά</p>
-                    <p class="service-description">Ιδανική επιλογή για γρήγορη ανανέωση και ευεξία μέσα στην ημέρα σας.</p>
-                    <!-- If there's a price, add: <p class="service-price-tag">XX€</p> -->
-                </div>
-                <div class="service-card">
-                    <h3>Ρεφλεξολογία Κεφαλής &amp; Προσώπου</h3>
-                    <p class="service-description">Στοχευμένη τεχνική για βαθιά χαλάρωση, ανακούφιση από πονοκεφάλους και μείωση του στρες.</p>
-                    <!-- If there's a price, add: <p class="service-price-tag">YY€</p> -->
-                </div>
+               <div class="service-card">
+    <h3>Μίνι Ρεφλεξολογία</h3>
+    <p class="service-duration">30 λεπτά</p>
+    <p class="service-description">Γρήγορη συνεδρία για άμεση χαλάρωση και ανανέωση.</p>
+    <p class="service-price-tag">20€</p>
+</div>
+
+<div class="service-card">
+    <h3>Ρεφλεξολογία Κεφαλής & Προσώπου</h3>
+    <p class="service-duration">30 λεπτά</p>
+    <p class="service-description">Ιδανική επιλογή για τόνωση ενέργειας και μείωση στρες.</p>
+    <p class="service-price-tag">20€</p>
+</div>
             </div>
         </div>
     </section>
@@ -434,6 +499,38 @@
         if (topBtn) {
             topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         }
+
+        /* Ensure floating controls (topBtn, chatIcon) stay above mobile browser UI (address/search bar)
+           by adjusting their bottom offset using visualViewport when available. */
+        (function setupFloatingOffsets() {
+            const chatIconEl = document.getElementById('chatIcon');
+
+            function updateFloatingPositions() {
+                // base offset in px from bottom
+                const baseOffset = 30;
+                let extra = 0;
+                if (window.visualViewport) {
+                    // visualViewport.height may be smaller when browser UI is visible
+                    // compute the inset between layout viewport and visual viewport
+                    extra = Math.max(0, window.innerHeight - window.visualViewport.height - (window.visualViewport.offsetTop || 0));
+                }
+
+                const total = baseOffset + Math.round(extra);
+
+                if (topBtn) topBtn.style.bottom = total + 'px';
+                if (chatIconEl) chatIconEl.style.bottom = total + 'px';
+            }
+
+            // Update on relevant events
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', updateFloatingPositions);
+                window.visualViewport.addEventListener('scroll', updateFloatingPositions);
+            }
+            window.addEventListener('resize', updateFloatingPositions);
+            window.addEventListener('orientationchange', updateFloatingPositions);
+            // initial call
+            updateFloatingPositions();
+        })();
 
         // Mobile Navigation Panel Script
         const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
@@ -855,28 +952,51 @@
                         setTimeout(() => {
                             hideTypingIndicator();
                             
-                            // Simple keyword-based response
-                            let responseKey = 'welcome'; // Default to welcome
-                            
-                            if (userMessage.toLowerCase().includes('ραντεβού') || 
-                                userMessage.toLowerCase().includes('κλείσω') || 
-                                userMessage.toLowerCase().includes('επικοινωνία')) {
+                            // Simple keyword-based response (extended)
+                            let responseKey = 'welcome'; // Default
+                            const m = userMessage.toLowerCase();
+
+                            if (m.includes('ραντεβ') || m.includes('κλείσ') || m.includes('επικοινων')) {
                                 responseKey = 'booking';
-                            } else if (userMessage.toLowerCase().includes('τιμ') || 
-                                      userMessage.toLowerCase().includes('κοστ') || 
-                                      userMessage.toLowerCase().includes('ευρώ') || 
-                                      userMessage.toLowerCase().includes('€')) {
-                                responseKey = 'prices';
-                            } else if (userMessage.toLowerCase().includes('οφέλ') || 
-                                      userMessage.toLowerCase().includes('βοηθά')) {
-                                responseKey = 'benefits';
-                            } else if (userMessage.toLowerCase().includes('ρεφλεξολογία') || 
-                                      userMessage.toLowerCase().includes('τι είναι')) {
+                            } else if (m.includes('τι είναι') || (m.includes('ρεφλεξ') && m.includes('τι'))) {
                                 responseKey = 'what_is_reflexology';
+                            } else if (m.includes('τιμή') || m.includes('τιμές') || m.includes('ευρώ') || m.includes('€') || m.includes('τιμ')) {
+                                responseKey = 'prices';
+                            } else if (m.includes('ύπν') || m.includes('υπν') || m.includes('ύπνος') || m.includes('κοιμά')) {
+                                responseKey = 'benefit_sleep';
+                            } else if (m.includes('ανοσ') || m.includes('ανοσο')) {
+                                responseKey = 'benefit_immunity';
+                            } else if (m.includes('πόνο') || m.includes('πόν') || m.includes('πλάτη') || m.includes('μυοσκελετ')) {
+                                responseKey = 'benefit_musculoskeletal';
+                            } else if (m.includes('πεπ') || m.includes('πέψη') || m.includes('πεπτικό')) {
+                                responseKey = 'benefit_digestion';
+                            } else if (m.includes('ώρες') || m.includes('ωρες') || m.includes('ώρα λειτουργίας') || m.includes('ωρα')) {
+                                responseKey = 'hours';
+                            } else if (m.includes('προσβ') || m.includes('προσβασι') || m.includes('ράμπ') || m.includes('ΑΜΕΑ'.toLowerCase())) {
+                                responseKey = 'accessibility';
+                            } else if (m.includes('προετοιμα') || m.includes('προετοιμ')) {
+                                responseKey = 'preparation';
+                            } else if (m.includes('μετά') && m.includes('συνεδ')) {
+                                responseKey = 'aftercare';
+                            } else if (m.includes('δωρο') || m.includes('voucher') || m.includes('vouchers')) {
+                                responseKey = 'vouchers';
+                            } else if (m.includes('πληροφορ') || m.includes('ανακαλύψ') || m.includes('highlights')) {
+                                responseKey = 'discover_highlights';
+                            } else if (m.includes('βιογραφ') || m.includes('αναστασ')) {
+                                responseKey = 'therapist_bio';
+                            } else if (m.includes('γλώσσ') || m.includes('γλωσσ') || m.includes('english')) {
+                                responseKey = 'languages';
+                            } else if (m.includes('πληρωμ') || m.includes('κάρτα') || m.includes('μετρητ')) {
+                                responseKey = 'payments';
+                            } else if (m.includes('οφέλ') || m.includes('βοηθ')) {
+                                responseKey = 'benefits';
                             }
-                            
+
                             // Add bot response
-                            addMessage(reflexologyContent[responseKey].message, 'bot');
+                            const response = reflexologyContent[responseKey] || reflexologyContent.welcome;
+                            addMessage(response.message, 'bot');
+                            // Display new options if available
+                            displayOptions(response.options || []);
                             
                             // Display new options
                             displayOptions(reflexologyContent[responseKey].options);
