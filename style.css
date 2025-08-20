@@ -423,7 +423,7 @@ section { padding: 4rem 1.2rem; }
 .hero p { font-size: clamp(1rem, 2.3vw, 1.3rem); max-width: 680px; margin: 0 auto 2rem; }
 
 /* ------------------ ABOUT ------------------ */
-.about-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); align-items: center; }
+.about-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); align-items: center; }
 
 /* ------------------ SERVICES ------------------ */
       .services-grid { 
