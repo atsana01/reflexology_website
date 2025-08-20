@@ -861,37 +861,12 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
     #discover-reflexology .discover-main-content.image-right .discover-image-wrapper {
         order: 1; /* Moves image to the right in a CSS grid */
     }
-
-    /* Benefits grid: two columns on tablet and three on larger desktops */
-    .benefits-grid-new {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    /* Services: ensure a consistent three-column layout on large screens */
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        align-items: start;
-    }
-}
-
-@media (min-width: 992px) {
-    .benefits-grid-new {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
-
-    /* Fix discover-main-content alignment for large desktop where image/text heights differ */
-    #discover-reflexology .discover-main-content {
-        align-items: start;
-    }
 }
 
 .benefits-grid-new {
     display: grid;
-    grid-template-columns: 1fr; /* mobile default: single column */
-    gap: 1.25rem; /* Slightly reduced gap on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; /* Increased gap */
 }
 
 .benefit-card-new {
@@ -1407,16 +1382,6 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
     .chat-icon {
         bottom: 50px; /* moved down closer to bottom */
         left: 18px; /* shift a bit to the left for mobile */
-    }
-
-    /* Add safe top spacing for sections that might be hidden behind the sticky header */
-    #discover-reflexology {
-        padding-top: 5.5rem; /* safe spacing to avoid header overlap on small viewports */
-    }
-
-    /* If services grid has 1-2 items on small screens, center them */
-    .services-grid {
-        justify-items: center;
     }
     
     /* Ensure lightbox controls are easily tappable */
