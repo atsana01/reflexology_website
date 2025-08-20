@@ -135,7 +135,7 @@
                                 <path d="M6.5 4.5l.9.9M4 6l1 .2M3 3l.6 1.6" />
                             </svg>
                         </span>
-                        <h4>Ο Καλύτερος Ύπνος</h4>
+                        <h4>Καλύτερος Ύπνος</h4>
                         <ul class="benefit-list">
                             <li>Εξισορροπεί το νευρικό σύστημα</li>
                             <li>Μειώνει άγχος και υπερένταση</li>
@@ -1007,6 +1007,16 @@
                         setTimeout(() => {
                             chatContainer.classList.remove('active');
                         }, 2000);
+                        return;
+                    }
+
+                    // If the option is a booking-step shortcut, start the booking flow immediately
+                    if (option.value === 'booking_step_name' || option.value === 'booking_step_name_45' || option.value === 'booking_step_name_30' || option.value === 'booking_step_name_package') {
+                        // preset duration when applicable
+                        if (option.value === 'booking_step_name_45') beginBooking('45′');
+                        else if (option.value === 'booking_step_name_30') beginBooking('30′');
+                        else if (option.value === 'booking_step_name_package') beginBooking('package 10');
+                        else beginBooking('');
                         return;
                     }
                     
