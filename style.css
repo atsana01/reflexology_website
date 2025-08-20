@@ -423,7 +423,7 @@ section { padding: 4rem 1.2rem; }
 .hero p { font-size: clamp(1rem, 2.3vw, 1.3rem); max-width: 680px; margin: 0 auto 2rem; }
 
 /* ------------------ ABOUT ------------------ */
-.about-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: center; }
+.about-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); align-items: center; }
 
 /* ------------------ SERVICES ------------------ */
       .services-grid { 
@@ -1305,7 +1305,8 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
         width: 50px;
         height: 50px;
         font-size: 1.3rem;
-        bottom: 100px; /* Position higher to avoid overlap with other elements */
+        bottom: 50px; /* moved down closer to bottom */
+        left: 18px; /* a bit more to the left */
     }
     
     #topBtn {
@@ -1379,7 +1380,8 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
     
     /* Ensure chat icon doesn't overlap with content */
     .chat-icon {
-        bottom: 90px; /* Position above the bottom of the screen */
+        bottom: 50px; /* moved down closer to bottom */
+        left: 18px; /* shift a bit to the left for mobile */
     }
     
     /* Ensure lightbox controls are easily tappable */
