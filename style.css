@@ -416,6 +416,9 @@ section { padding: 4rem 1.2rem; }
     place-items: center; 
     text-align: center; 
     padding: 2rem;
+    position: relative; /* Add relative positioning to create a stacking context */
+    z-index: 1; /* Ensure it's in the base stacking layer */
+    isolation: isolate; /* Prevent children from creating a single compositing layer with the background */
     /* Use taupe overlay (#9d9093) instead of green */
     background: linear-gradient(rgba(157,144,147,0.85), rgba(157,144,147,0.85)), 
                 url('https://images.unsplash.com/photo-1589274933413-adf30c64a4ef?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
@@ -843,6 +846,8 @@ footer { background: #717F76; text-align: center; padding: 2rem 1rem; color: var
 #discover-reflexology {
     background: #9d9093; /* ensured taupe color as requested (replaces var(--dark) which showed green) */
     padding: 5rem 1.2rem;
+    position: relative; /* Add relative positioning */
+    z-index: 2; /* Ensure it stacks above the hero section */
 }
 
 .discover-header {

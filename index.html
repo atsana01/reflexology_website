@@ -714,94 +714,239 @@
         const chatInput = document.getElementById('chatInput');
         const chatSend = document.getElementById('chatSend');
         
-        // Educational content about reflexology
+        // Expanded Greek-only educational & booking content for the chatbot
         const reflexologyContent = {
             welcome: {
                 message: "Καλώς ήρθατε στο χώρο ρεφλεξολογίας της Αναστασίας! Πώς μπορώ να σας βοηθήσω σήμερα;",
                 options: [
                     { text: "Τι είναι η ρεφλεξολογία;", value: "what_is_reflexology" },
-                    { text: "Ποια τα οφέλη της ρεφλεξολογίας;", value: "benefits" },
-                    { text: "Πώς μπορώ να κλείσω ραντεβού;", value: "booking" },
-                    { text: "Τιμές υπηρεσιών", value: "prices" }
+                    { text: "Οφέλη / Τriage (στόχοι)", value: "triage_menu" },
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "Τιμές & Πακέτα", value: "prices" },
+                    { text: "FAQs", value: "faqs" }
                 ]
             },
             what_is_reflexology: {
-                message: "Η ρεφλεξολογία είναι μια εναλλακτική θεραπευτική μέθοδος που βασίζεται στην αρχή ότι υπάρχουν αντανακλαστικά σημεία στα πόδια, τα χέρια και τα αυτιά που αντιστοιχούν σε διάφορα όργανα και συστήματα του σώματος. Με την εφαρμογή πίεσης σε αυτά τα σημεία, ο ρεφλεξολόγος μπορεί να προωθήσει την υγεία και την ευεξία σε όλο το σώμα.",
+                message: "Η ρεφλεξολογία είναι μια ολιστική μέθοδος που δουλεύει σε αντανακλαστικά σημεία (πόδια, χέρια, αυτιά) για να υποστηρίξει την κυκλοφορία, τη χαλάρωση και τις φυσικές διαδικασίες αυτοΐασης.",
                 options: [
                     { text: "Πώς λειτουργεί;", value: "how_it_works" },
-                    { text: "Ποια τα οφέλη της;", value: "benefits" },
-                    { text: "Είναι κατάλληλη για μένα;", value: "suitable_for_me" }
+                    { text: "Τι να περιμένω στην 1η συνεδρία;", value: "first_session" },
+                    { text: "Επιστροφή", value: "welcome" }
                 ]
             },
             how_it_works: {
-                message: "Η ρεφλεξολογία λειτουργεί με την εφαρμογή πίεσης σε συγκεκριμένα σημεία των ποδιών, των χεριών ή των αυτιών. Αυτά τα σημεία συνδέονται με διάφορα όργανα και συστήματα του σώματος μέσω ενεργειακών καναλιών. Η πίεση σε αυτά τα σημεία βοηθά στην απελευθέρωση της ενέργειας και την αποκατάσταση της ισορροπίας στο σώμα, προωθώντας έτσι τη φυσική διαδικασία αυτοθεραπείας.",
+                message: "Με ήπιες, στοχευμένες πιέσεις στα αντανακλαστικά σημεία ενεργοποιούμε την κυκλοφορία και την ισορροπία. Η κάθε συνεδρία προσαρμόζεται στις ανάγκες σας.",
                 options: [
-                    { text: "Ποια τα οφέλη της;", value: "benefits" },
-                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" }
+                    { text: "Οφέλη / Triage", value: "triage_menu" },
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" }
                 ]
             },
-            benefits: {
-                message: "Η ρεφλεξολογία προσφέρει πολλά οφέλη, όπως:\n\n• Μείωση του στρες και της έντασης\n• Βελτίωση της κυκλοφορίας του αίματος\n• Ενίσχυση του ανοσοποιητικού συστήματος\n• Ανακούφιση από πόνους και πονοκεφάλους\n• Βελτίωση της ποιότητας του ύπνου\n• Αύξηση των επιπέδων ενέργειας\n• Προώθηση της συνολικής ευεξίας\n\nΠολλοί πελάτες μας αναφέρουν σημαντική βελτίωση μετά από μόλις λίγες συνεδρίες!",
+            triage_menu: {
+                message: "Επιλέξτε τι σας ενδιαφέρει (μπορείτε να επιλέξετε περισσότερα):",
                 options: [
-                    { text: "Πόσες συνεδρίες χρειάζομαι;", value: "sessions_needed" },
-                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
-                    { text: "Τιμές υπηρεσιών", value: "prices" }
+                    { text: "Καλύτερος ύπνος", value: "triage_sleep" },
+                    { text: "Μείωση στρες", value: "triage_stress" },
+                    { text: "Μυοσκελετικά", value: "triage_msk" },
+                    { text: "Πεπτικό", value: "triage_digest" },
+                    { text: "Ορμονική ισορροπία", value: "triage_hormonal" },
+                    { text: "Ανοσοποιητικό / Αυτοάνοσα", value: "triage_immune" },
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "Επιστροφή", value: "welcome" }
                 ]
             },
-            suitable_for_me: {
-                message: "Η ρεφλεξολογία είναι κατάλληλη για τους περισσότερους ανθρώπους και μπορεί να βοηθήσει σε διάφορες καταστάσεις. Είναι ιδιαίτερα ωφέλιμη για άτομα που αντιμετωπίζουν στρες, αϋπνία, πονοκεφάλους, προβλήματα πέψης, ορμονικές ανισορροπίες και χρόνιους πόνους. Ωστόσο, υπάρχουν ορισμένες περιπτώσεις όπου μπορεί να μην συνιστάται, όπως σε περιπτώσεις θρόμβωσης ή σοβαρών μολύνσεων. Η Αναστασία μπορεί να σας συμβουλεύσει αν έχετε συγκεκριμένες ανησυχίες.",
+            triage_sleep: {
+                message: "Τι να περιμένετε: Βελτίωση του ύπνου μέσω χαλάρωσης του νευρικού συστήματος. Πρόταση πλάνου: 4–6 συνεδρίες, στην αρχή 1/εβδ. ή 1/εβδ.–2/εβδ. για 4–6 εβδομάδες, μετά συντήρηση κάθε 2–4 εβδομάδες. Διάρκεια/Τιμή: 45′ — 30€ (προτείνεται) ή 30′ — 20€ για γρήγορη ανακούφιση. Disclaimer: Συμπληρωματική φροντίδα — δεν αντικαθιστά ιατρική διάγνωση/θεραπεία.",
                 options: [
-                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
-                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" }
+                    { text: "Πρότεινε μέρα/ώρα", value: "start_booking" },
+                    { text: "Τι να περιμένω στην 1η συνεδρία;", value: "first_session" },
+                    { text: "Επιστροφή", value: "triage_menu" }
                 ]
             },
-            sessions_needed: {
-                message: "Ο αριθμός των συνεδριών που χρειάζεστε εξαρτάται από την κατάστασή σας και τους στόχους σας. Για γενική χαλάρωση και ευεξία, μια μηνιαία συνεδρία μπορεί να είναι αρκετή. Για συγκεκριμένα προβλήματα υγείας, συνιστώνται συνήθως 4-6 εβδομαδιαίες συνεδρίες, ακολουθούμενες από συντήρηση κάθε 2-4 εβδομάδες. Η Αναστασία θα δημιουργήσει ένα εξατομικευμένο πλάνο θεραπείας για εσάς μετά την πρώτη σας συνεδρία.",
+            triage_stress: {
+                message: "Τι να περιμένετε: Μείωση στρες και έντασης, καλύτερη διαχείριση συμπτωμάτων άγχους. Πρόταση πλάνου: 4–6 συνεδρίες σε εβδομαδιαία βάση, μετά συντήρηση. Διάρκεια/Τιμή: 45′ — 30€ ή 30′ — 20€. Disclaimer: Συμπληρωματική φροντίδα — αν λαμβάνετε αγωγή για άγχος, ενημερώστε τον/την ρεφλεξολόγο.",
                 options: [
-                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
-                    { text: "Τιμές υπηρεσιών", value: "prices" }
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "Επιστροφή", value: "triage_menu" }
+                ]
+            },
+            triage_msk: {
+                message: "Τι να περιμένετε: Ανακούφιση πόνων και βελτίωση τοπικής κυκλοφορίας. Πρόταση πλάνου: 4–6 συνεδρίες (1/εβδ.), μετά συντήρηση ανά 2–4 εβδομάδες. Διάρκεια/Τιμή: 45′ — 30€ (προτείνεται). Disclaimer: Αν έχετε πρόσφατο τραυματισμό ή χειρουργείο, συμβουλευτείτε τον ιατρό σας πρώτα.",
+                options: [
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "Αντενδείξεις", value: "contraindications" },
+                    { text: "Επιστροφή", value: "triage_menu" }
+                ]
+            },
+            triage_digest: {
+                message: "Τι να περιμένετε: Βελτίωση πέψης και μείωση δυσφορίας. Πρόταση πλάνου: 3–6 συνεδρίες, 30′ ή 45′ ανάλογα με τα συμπτώματα. Διάρκεια/Τιμή: 30′ — 20€ / 45′ — 30€. Disclaimer: Σε σοβαρά πεπτικά προβλήματα συμβουλευτείτε ιατρό.",
+                options: [
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "Επιστροφή", value: "triage_menu" }
+                ]
+            },
+            triage_hormonal: {
+                message: "Τι να περιμένετε: Υποστήριξη ορμονικής ισορροπίας, ανακούφιση συμπτωμάτων. Πρόταση πλάνου: 4–6 συνεδρίες + συντήρηση. Διάρκεια/Τιμή: 45′ — 30€. Disclaimer: Σε θέματα γονιμότητας ή σύνθετα ιατρικά περιστατικά, συμβουλευτείτε τον ιατρό σας.",
+                options: [
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "Επιστροφή", value: "triage_menu" }
+                ]
+            },
+            triage_immune: {
+                message: "Τι να περιμένετε: Ελαφριά ενεργοποίηση λέμφου και κυκλοφορίας που στηρίζει την ευεξία. Πρόταση πλάνου: 4–6 συνεδρίες, μετά συντήρηση. Διάρκεια/Τιμή: 45′ — 30€. Disclaimer: Δεν αντικαθιστά ιατρική θεραπεία για αυτοάνοσα.",
+                options: [
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "Επιστροφή", value: "triage_menu" }
+                ]
+            },
+            contraindications: {
+                message: "Σημεία ασφαλείας / αντενδείξεις (γρήγορη λίστα):\n• Πρόσφατη θρόμβωση\n• Σοβαρή λοίμωξη ή πυρετός\n• Ανοιχτά τραύματα στην περιοχή εφαρμογής\n• Υψηλού κινδύνου εγκυμοσύνη\n• Μετεγχειρητικά < 6 εβδομάδες\nΣε αυτές τις περιπτώσεις προτείνεται πρώτα ιατρική συμβουλή.",
+                options: [
+                    { text: "Θέλω να μιλήσω στον/στην Αναστασία", value: "call" },
+                    { text: "Επιστροφή", value: "welcome" }
+                ]
+            },
+            first_session: {
+                message: "Τι να περιμένετε στην 1η συνεδρία: Διάρκεια 30′ ή 45′ (επιλογή σας). Φορέστε άνετα ρούχα. Συμβουλές: αποφύγετε βαρύ γεύμα 1–2 ώρες πριν, πιείτε νερό μετά. Μετά τη συνεδρία συνήθως υπάρχει αίσθημα χαλάρωσης ή/και υπνηλία — ξεκουραστείτε. Disclaimer: Συμπληρωματική φροντίδα.",
+                options: [
+                    { text: "Κλείσιμο ραντεβού", value: "start_booking" },
+                    { text: "FAQs", value: "faqs" }
                 ]
             },
             prices: {
-                message: "Οι τιμές των υπηρεσιών μας είναι:\n\n• Συνεδρία Ρεφλεξολογίας (45 λεπτά): 30€\n• Πακέτο 10 Συνεδριών: 270€ (εξοικονόμηση 30€)\n• Express Ρεφλεξολογία (30 λεπτά): 20€\n• Ρεφλεξολογία Κεφαλής & Προσώπου: 25€\n\nΓια περισσότερες πληροφορίες σχετικά με τιμές, παρακαλούμε επικοινωνήστε μαζί μας.",
+                message: "Τιμές (ενημερωμένες):\n• Ρεφλεξολογία 45′ — 30€\n• Express 30′ — 20€\n• Ρεφλεξολογία Κεφαλής & Προσώπου — 20€\n• Πακέτο 10 συνεδριών — 270€ (εξοικονόμηση 30€)\nΠληρωμή στο γραφείο. Ακύρωση 24 ώρες πριν.\nΘέλετε να κλείσετε;",
                 options: [
-                    { text: "Θέλω να κλείσω ραντεβού", value: "booking" },
-                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" }
+                    { text: "Κλείσιμο 45′ — 30€", value: "start_booking_45" },
+                    { text: "Κλείσιμο 30′ — 20€", value: "start_booking_30" },
+                    { text: "Πακέτο 10 συνεδριών", value: "package_10" },
+                    { text: "Επιστροφή", value: "welcome" }
                 ]
             },
-            booking: {
-                message: "Υπάρχουν διάφοροι τρόποι για να κλείσετε ραντεβού:\n\n• Τηλεφωνικά: Καλέστε μας στο 697 622 2211\n• Email: Στείλτε μας στο anastasiareflexology@gmail.com\n• Φόρμα επικοινωνίας: Συμπληρώστε τη φόρμα στην ιστοσελίδα μας\n\nΘα θέλατε να σας βοηθήσω να συμπληρώσετε τη φόρμα επικοινωνίας τώρα;",
+            package_10: {
+                message: "Πακέτο 10 συνεδριών — 270€ (εξοικονόμηση 30€). Ιδανικό για πιο βαθιά και συνεχή υποστήριξη. Θέλετε πληροφορίες ή να κλείσουμε;",
                 options: [
-                    { text: "Ναι, θέλω να συμπληρώσω τη φόρμα", value: "form" },
-                    { text: "Θα επικοινωνήσω τηλεφωνικά", value: "call" },
-                    { text: "Θα στείλω email", value: "email" }
+                    { text: "Κλείσιμο πακέτου", value: "start_booking_package" },
+                    { text: "Επιστροφή", value: "prices" }
                 ]
             },
-            form: {
-                message: "Τέλεια! Μπορείτε να συμπληρώσετε τη φόρμα επικοινωνίας στο κάτω μέρος της σελίδας. Απλά κάντε κλικ στο κουμπί παρακάτω και θα σας μεταφέρω εκεί. Συμπληρώστε το όνομά σας, το email σας και ένα σύντομο μήνυμα με τις προτιμήσεις σας για ημέρα και ώρα, και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό!",
+            faqs: {
+                message: "Συχνές ερωτήσεις — επέλεξε μία:",
                 options: [
-                    { text: "Μετάβαση στη φόρμα επικοινωνίας", value: "goto_form" }
+                    { text: "Πονάει;", value: "faq_pain" },
+                    { text: "Εγκυμοσύνη;", value: "faq_pregnancy" },
+                    { text: "Παρενέργειες;", value: "faq_sideeffects" },
+                    { text: "Τι να φορέσω;", value: "faq_wear" },
+                    { text: "Πότε να έρχομαι;", value: "faq_frequency" },
+                    { text: "Δώρα / Κάρτες", value: "gift_card" },
+                    { text: "Μαρτυρίες", value: "testimonials_request" },
+                    { text: "Επιστροφή", value: "welcome" }
                 ]
             },
-            call: {
-                message: "Μπορείτε να μας καλέσετε στο 697 622 2211 για να κλείσετε το ραντεβού σας. Οι ώρες λειτουργίας μας είναι Δευτέρα έως Παρασκευή, 10:00-20:00 και Σάββατο 10:00-15:00. Ανυπομονούμε να σας ακούσουμε!",
-                options: [
-                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" },
-                    { text: "Τέλος συνομιλίας", value: "end_chat" }
-                ]
-            },
-            email: {
-                message: "Μπορείτε να μας στείλετε email στο anastasiareflexology@gmail.com με τις προτιμήσεις σας για ημέρα και ώρα. Θα σας απαντήσουμε εντός 24 ωρών για να επιβεβαιώσουμε το ραντεβού σας. Ευχαριστούμε για το ενδιαφέρον σας!",
-                options: [
-                    { text: "Επιστροφή στο κύριο μενού", value: "welcome" },
-                    { text: "Τέλος συνομιλίας", value: "end_chat" }
-                ]
-            },
-            end_chat: {
-                message: "Ευχαριστούμε που επικοινωνήσατε μαζί μας! Ελπίζουμε να σας δούμε σύντομα στο χώρο μας για μια αναζωογονητική συνεδρία ρεφλεξολογίας. Καλή σας ημέρα!",
-                options: []
-            }
+            faq_pain: { message: "Πονάει; Όχι — εφαρμόζουμε ήπιες, στοχευμένες πιέσεις. Αν νιώσετε ενόχληση, προσαρμόζουμε την ένταση αμέσως.", options: [{ text: "Επιστροφή", value: "faqs" }] },
+            faq_pregnancy: { message: "Εγκυμοσύνη: Σε φυσιολογική εγκυμοσύνη μπορεί να εφαρμοστεί με προσαρμογές. Σε υψηλού κινδύνου εγκυμοσύνη ή επιπλοκές, ζητήστε πρώτα ιατρική συμβουλή.", options: [{ text: "Επιστροφή", value: "faqs" }] },
+            faq_sideeffects: { message: "Παρενέργειες: Σπάνια και ήπιες — υπνηλία, δίψα ή προσωρινή ευαισθησία. Πιείτε νερό και ξεκουραστείτε μετά.", options: [{ text: "Επιστροφή", value: "faqs" }] },
+            faq_wear: { message: "Τι να φορέσω: Άνετα ρούχα. Αποφύγετε βαρύ γεύμα 1–2 ώρες πριν.", options: [{ text: "Επιστροφή", value: "faqs" }] },
+            faq_frequency: { message: "Συχνότητα: Για στόχους όπως στρες ή μυοσκελετικά συνήθως 1×/εβδ. για 4–6 εβδομάδες, μετά συντήρηση κάθε 2–4 εβδομάδες.", options: [{ text: "Κλείσιμο ραντεβού", value: "start_booking" }, { text: "Επιστροφή", value: "faqs" }] },
+            gift_card: { message: "Κάρτα δώρου / Πακέτα: Ναι, διαθέσιμες κάρτες δώρου. Πακέτο 10 συνεδριών: 270€.", options: [{ text: "Κλείσιμο πακέτου", value: "start_booking_package" }, { text: "Επιστροφή", value: "faqs" }] },
+            testimonials_request: { message: "Δύο πρόσφατες γνώμες:\n• 'Μετά από μερικές συνεδρίες ένιωσα μεγάλη βελτίωση.' — Δέσποινα Ζ.\n• 'Η Αναστασία είναι εξαιρετική επαγγελματίας.' — Μαρία Κ.", options: [{ text: "Επιστροφή", value: "faqs" }] },
+            call: { message: "Μπορείτε να μας καλέσετε στο 697 622 2211 για άμεση βοήθεια ή κράτηση. Προτιμάτε να σας καλέσουμε εμείς;", options: [{ text: "Ναι, καλέστε με", value: "request_callback" }, { text: "Επιστροφή", value: "welcome" }] },
+            end_chat: { message: "Ευχαριστούμε που επικοινωνήσατε μαζί μας! Αν χρειαστείτε βοήθεια, εδώ είμαστε.", options: [] },
+
+            // Booking-related placeholder intents (triggers start of booking flow)
+            start_booking: { message: "Θα σας βοηθήσω να κλείσετε — σε 2 βήματα θα συλλέξουμε τα απαραίτητα στοιχεία: (1) Στοιχεία, (2) Επιβεβαίωση & αποστολή. Θέλετε να ξεκινήσουμε;", options: [{ text: "Ναι, ξεκινάμε", value: "booking_step_name" }, { text: "Όχι, τηλεφωνικά", value: "call" }, { text: "Επιστροφή", value: "welcome" }] },
+            start_booking_45: { message: "Επιλέξατε 45′ — 30€. Θέλουμε να ξεκινήσουμε;", options: [{ text: "Ναι", value: "booking_step_name_45" }, { text: "Όχι, επιστροφή", value: "prices" }] },
+            start_booking_30: { message: "Επιλέξατε 30′ — 20€. Θέλουμε να ξεκινήσουμε;", options: [{ text: "Ναι", value: "booking_step_name_30" }, { text: "Όχι, επιστροφή", value: "prices" }] },
+            start_booking_package: { message: "Κλείσιμο πακέτου 10 συνεδριών — 270€. Θέλετε να προχωρήσουμε με στοιχεία;", options: [{ text: "Ναι", value: "booking_step_name_package" }, { text: "Επιστροφή", value: "prices" }] },
+
+            // Final generic intent used after user free-text or keywords
+            unknown: { message: "Συγγνώμη, δεν κατάλαβα — μπορείτε να το ξαναπείτε με λίγα λόγια;", options: [{ text: "Κύριο μενού", value: "welcome" }] }
         };
+
+        // Booking state & helpers
+        let bookingState = null; // {name, phone, email, duration, preferred, goal}
+
+        function beginBooking(pref) {
+            bookingState = { name: '', phone: '', email: '', duration: pref || '', preferred: '', goal: '' };
+            addMessage('Θα χρειαστώ λίγα στοιχεία για το ραντεβού. Πώς να σας φωνάζω;', 'bot');
+            // show quick reply to collect name
+            chatOptions.innerHTML = '';
+            const btn = document.createElement('button');
+            btn.className = 'chat-option';
+            btn.textContent = 'Πείτε μου το όνομά σας εδώ...';
+            btn.addEventListener('click', () => {
+                chatInput.focus();
+            });
+            chatOptions.appendChild(btn);
+        }
+
+        function processBookingField(field, value) {
+            if (!bookingState) return;
+            bookingState[field] = value;
+        }
+
+        function confirmAndSendBooking() {
+            if (!bookingState) return addMessage('Δεν βρέθηκαν στοιχεία κράτησης.', 'bot');
+            const summary = `Κράτηση — Όνομα: ${bookingState.name || '-'}, Τηλέφωνο: ${bookingState.phone || '-'}, Email: ${bookingState.email || '-'}, Διάρκεια: ${bookingState.duration || '-'}, Προτιμώμενο: ${bookingState.preferred || '-'}, Στόχος: ${bookingState.goal || '-'}`;
+            addMessage('Παραθέτω τα στοιχεία προς αποστολή:', 'bot');
+            addMessage(summary, 'bot');
+            // Ask to submit
+            chatOptions.innerHTML = '';
+            const submitBtn = document.createElement('button');
+            submitBtn.className = 'chat-option';
+            submitBtn.textContent = 'Ναι, στείλε το στη φόρμα';
+            submitBtn.addEventListener('click', () => {
+                // pre-fill the contact form and optionally submit
+                const contactForm = document.getElementById('contactForm');
+                if (contactForm) {
+                    const nameEl = document.getElementById('name');
+                    const emailEl = document.getElementById('email');
+                    const phoneEl = document.getElementById('phone');
+                    const messageEl = document.getElementById('message');
+                    if (nameEl) nameEl.value = bookingState.name || '';
+                    if (emailEl) emailEl.value = bookingState.email || '';
+                    if (phoneEl) phoneEl.value = bookingState.phone || '';
+                    if (messageEl) messageEl.value = `Κράτηση: ${bookingState.duration || '-'}; Προτιμώμενο: ${bookingState.preferred || '-'}; Στόχος: ${bookingState.goal || '-'}`;
+                    // Focus the form so user can review
+                    contactForm.scrollIntoView({ behavior: 'smooth' });
+                    addMessage('Σας οδήγησα στη φόρμα — συμπληρώστε και πατήστε Αποστολή για να σταλεί μέσω Formspree, ή ενημερώστε με αν θέλετε να στείλω εγώ τα στοιχεία.', 'bot');
+                } else {
+                    addMessage('Η φόρμα δεν βρέθηκε — παρακαλώ καλέστε στο 697 622 2211.', 'bot');
+                }
+                bookingState = null;
+                chatOptions.innerHTML = '';
+            });
+            chatOptions.appendChild(submitBtn);
+
+            const phoneBtn = document.createElement('button');
+            phoneBtn.className = 'chat-option';
+            phoneBtn.textContent = 'Θέλω να με καλέσετε';
+            phoneBtn.addEventListener('click', () => {
+                addMessage('Σημείωσα το αίτημα — θα σας καλέσουμε το συντομότερο.', 'bot');
+                bookingState = null;
+                chatOptions.innerHTML = '';
+            });
+            chatOptions.appendChild(phoneBtn);
+        }
+
+        function openMaps() {
+            // Deep link to Google Maps for the address used in the iframe
+            const url = 'https://www.google.com/maps/search/?api=1&query=Ιπποκράτους+28+Βέροια';
+            window.open(url, '_blank');
+        }
+
+        // Enhance keyword matching: add greeklish and common tokens
+        const keywordMap = [
+            { keys: ['ραντεβού', 'κλεισω', 'κλείσω', 'ραντεβου'], value: 'start_booking' },
+            { keys: ['τιμη', 'τιμες', 'κοστος', '€', 'ευρω'], value: 'prices' },
+            { keys: ['υπνος', 'sleep'], value: 'triage_sleep' },
+            { keys: ['στρες', 'stress'], value: 'triage_stress' },
+            { keys: ['πονο', 'πόνο', 'πόνους'], value: 'triage_msk' },
+            { keys: ['πεπτικ', 'πεπτικο', 'πεπτική'], value: 'triage_digest' },
+            { keys: ['ορμον', 'ορμονική'], value: 'triage_hormonal' },
+            { keys: ['ανοσο', 'αυτοανοσα'], value: 'triage_immune' },
+            { keys: ['ωρες', 'ωράριο', 'ωρα'], value: 'call' },
+            { keys: ['τοποθεσια', 'χάρτης', 'map', 'maps'], value: 'open_maps' }
+        ];
+
         
         // Function to add a message to the chat
         function addMessage(text, sender) {
@@ -946,30 +1091,86 @@
                             hideTypingIndicator();
                             
                             // Simple keyword-based response
-                            let responseKey = 'welcome'; // Default to welcome
-                            
-                            if (userMessage.toLowerCase().includes('ραντεβού') || 
-                                userMessage.toLowerCase().includes('κλείσω') || 
-                                userMessage.toLowerCase().includes('επικοινωνία')) {
-                                responseKey = 'booking';
-                            } else if (userMessage.toLowerCase().includes('τιμ') || 
-                                      userMessage.toLowerCase().includes('κοστ') || 
-                                      userMessage.toLowerCase().includes('ευρώ') || 
-                                      userMessage.toLowerCase().includes('€')) {
-                                responseKey = 'prices';
-                            } else if (userMessage.toLowerCase().includes('οφέλ') || 
-                                      userMessage.toLowerCase().includes('βοηθά')) {
-                                responseKey = 'benefits';
-                            } else if (userMessage.toLowerCase().includes('ρεφλεξολογία') || 
-                                      userMessage.toLowerCase().includes('τι είναι')) {
-                                responseKey = 'what_is_reflexology';
-                            }
-                            
-                            // Add bot response
-                            addMessage(reflexologyContent[responseKey].message, 'bot');
-                            
-                            // Display new options
-                            displayOptions(reflexologyContent[responseKey].options);
+                                        let responseKey = 'welcome'; // Default to welcome
+
+                                        const lower = userMessage.toLowerCase();
+
+                                        // keywordMap matching
+                                        for (const map of keywordMap) {
+                                            for (const k of map.keys) {
+                                                if (lower.includes(k)) {
+                                                    if (map.value === 'open_maps') {
+                                                        openMaps();
+                                                        addMessage('Άνοιξα οδηγίες στο Google Maps σε νέο παράθυρο.', 'bot');
+                                                        responseKey = 'welcome';
+                                                        break;
+                                                    }
+                                                    responseKey = map.value;
+                                                    break;
+                                                }
+                                            }
+                                            if (responseKey !== 'welcome' && responseKey !== 'open_maps') break;
+                                        }
+
+                                        // If bookingState is active collect free-text fields
+                                        if (bookingState) {
+                                            // naive field assignment based on what is missing
+                                            if (!bookingState.name) {
+                                                processBookingField('name', userMessage);
+                                                addMessage('Ευχαριστώ — και τώρα το κινητό ή το email σας;', 'bot');
+                                                hideTypingIndicator();
+                                                return;
+                                            } else if (!bookingState.phone && /\d{6,}/.test(userMessage.replace(/\s+/g,''))) {
+                                                processBookingField('phone', userMessage);
+                                                addMessage('Έλαβα τον αριθμό. Έχετε προτίμηση μέρας/ώρας;', 'bot');
+                                                hideTypingIndicator();
+                                                return;
+                                            } else if (!bookingState.email && userMessage.includes('@')) {
+                                                processBookingField('email', userMessage);
+                                                addMessage('Εντάξει — ποια διάρκεια προτιμάτε; 30′ (20€) ή 45′ (30€);', 'bot');
+                                                hideTypingIndicator();
+                                                return;
+                                            } else if (!bookingState.duration && (lower.includes('30') || lower.includes('45') || lower.includes('30\'') || lower.includes('45\''))) {
+                                                // simplistic parse
+                                                if (lower.includes('30')) processBookingField('duration', '30′');
+                                                else processBookingField('duration', '45′');
+                                                addMessage('Τέλεια. Ποιος είναι ο κύριος λόγος/στόχος της συνεδρίας; (π.χ. ύπνος, στρες)', 'bot');
+                                                hideTypingIndicator();
+                                                return;
+                                            } else if (!bookingState.goal) {
+                                                processBookingField('goal', userMessage);
+                                                addMessage('Σχεδόν έτοιμο — επιβεβαιώνεις να στείλω τα στοιχεία στη φόρμα επικοινωνίας;', 'bot');
+                                                // show confirm button
+                                                chatOptions.innerHTML = '';
+                                                const yes = document.createElement('button'); yes.className='chat-option'; yes.textContent='Ναι, στείλε τα'; yes.addEventListener('click', confirmAndSendBooking);
+                                                const no = document.createElement('button'); no.className='chat-option'; no.textContent='Όχι, θέλω να ελέγξω'; no.addEventListener('click', ()=>{ addMessage('Μπορείτε να επεξεργαστείτε τα πεδία στη φόρμα.', 'bot'); bookingState=null; chatOptions.innerHTML=''; });
+                                                chatOptions.appendChild(yes); chatOptions.appendChild(no);
+                                                hideTypingIndicator();
+                                                return;
+                                            }
+                                        }
+
+                                        // Add bot response
+                                        const resp = reflexologyContent[responseKey] || reflexologyContent.unknown;
+                                        addMessage(resp.message, 'bot');
+
+                                        // Special actions for some responseKeys
+                                        if (responseKey === 'start_booking' || responseKey.startsWith('start_booking')) {
+                                            // begin booking flow with optional preset duration
+                                            if (responseKey === 'start_booking_45') beginBooking('45′');
+                                            else if (responseKey === 'start_booking_30') beginBooking('30′');
+                                            else if (responseKey === 'start_booking_package') beginBooking('package 10');
+                                            else beginBooking('');
+                                            hideTypingIndicator();
+                                            return;
+                                        }
+
+                                        if (responseKey === 'open_maps') {
+                                            openMaps();
+                                        }
+
+                                        // Display new options
+                                        displayOptions(resp.options || []);
                         }, 1500); // Slightly longer delay for typing response to user input
                     }
                 }
