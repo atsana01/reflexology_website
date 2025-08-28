@@ -774,8 +774,11 @@ table th, table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px
 }
 
 .lightbox-content img {
-    max-width: 100%;
-    max-height: 90vh;
+    max-width: 90vw; /* Use viewport width for max-width */
+    max-height: 85vh; /* Use viewport height for max-height */
+    width: auto; /* Let the browser determine width based on height */
+    height: auto; /* Let the browser determine height based on width */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
     border-radius: 8px;
     box-shadow: 0 5px 30px rgba(0,0,0,0.3);
     transform: scale(0.9);
